@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Italiana&family=Jacquard+12&display=swap');
+* {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    padding: 0;
+    margin-left: -25px;
+}
+.navbar ul {
+   margin: 1% 1% 1% 0%;;
+}
+.navbar li {
+    font-family: monospace;
+    padding: 1% 1.5%;
+    font-size: 13px;
+    display: inline-block;
+    transition-property: background-color;
+    transition: 200ms;
+}
+.navbar a {
+    text-decoration: none;
+    color: black;
+}
+.navbar li:hover {
+    background-color: #fa7a3e;
+    width:max-content;
+    border-radius: 8px;
+    color: white;
+}
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #fa7a3e;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    transition: all 500ms;
+}  
+#myBtn img {
+    height: 20px;
+}
+#myBtn:hover {
+    background-color: #555;
+}
+header {
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    padding: 5% 0% 0% 0%;
+}
+header .text {
+    padding: 5%;
+    height: fit-content;
+    font-family: "Italiana";
+    margin: 4% 0% 0% 0%;
+    display: flex;
+    flex-direction: column;
+}
+header .alias{
+    font-size: 40px; 
+    margin-bottom: 5%;  
+}
+header .name{
+    font-size: 40px;   
+}
+header .button {
+    font-family: monospace;
+    padding: 0% 1%;
+    background-color: rgb(255, 32, 32);
+}
+header a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+header .kosong {
+    width: 5%;
+    height: fit-content;
+}
+header .logo {
+    height: fit-content;
+    transition: all 400ms ease-in-out;
+}
+header .logo:hover {
+    transform: translateY(-10px);
+}
+header .logo img {
+    max-height: 400px;
+}
+.about {
+    background-color: rgb(94, 91, 91);      
+    padding: 0% 10%;
+}
+.about h2{
+    font-family: "Italiana";
+    padding: 4% 0%;
+    margin: 0;    
+    text-align: center;
+    color: #ffffff;
+}
+.about p {
+    font-size: 15px;
+    margin: 0;
+    padding: 0% 0% 5% 0%;
+    font-family: monospace;
+    color:#ffffff;
+    text-align: center;
+}
+.tools {
+    padding: 5% 12%;
+    background-color: #c4c4c4;
+}
+.title {
+    margin: 0;
+    text-align: center;
+    font-family: "Italiana";
+}
+.desc {
+    font-size: 15px;
+    font-family: monospace;
+    text-align: center;
+    margin: 3% 0%;
+}
+.tabel {
+    display: flex;
+}
+.tabel-satu {
+    margin: 0.5%;
+    width: 100%;
+    height: fit-content;
+    border: 2px solid black;
+    border-radius: 6px;
+    text-align: center;
+} 
+.tabel-satu h3 {
+    padding: 1% 5%;
+    margin: 1em 0em 0em 0em;
+}
+.tabel-fill {
+    margin: 0;
+    padding: 2%;
+    justify-content: space-around;
+    display: flex;
+}
+.filled {
+    display: flex;
+}
+.filled img {
+    max-height: 35px;
+    margin: 1em 0em;
+}
+.filled p {
+    padding: 10em;
+    margin: 1em 1em;
+    font-size: 17px;
+    padding: 1%;
+}
+.project {
+    padding: 5% 12%;
+    background-color: #d8d8d8;
+}
+.project .text h2 {
+    margin: 0;
+    text-align: center;
+    font-family: "Italiana";
+}
+.project .text p {
+    font-size: 15px;
+    font-family: monospace;
+}
+.wrapper {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	gap: 10px;
+	margin: 5% auto;
+}
+.single-card {
+	position: relative;
+	width: 250px;
+	height: 300px;
+	margin: 5px;
+	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+	transition: box-shadow 0.3s ease;
+	overflow: hidden;
+	background: #414852;
+	border-radius: 15px;
+	transition: all 0.8s ease-in-out;
+}
+.single-card:hover {
+	transform: translateY(-10px);
+}
+.img-area {
+	position: relative;
+	width: 100%;
+	height: 150px;
+	overflow: hidden;
+}
+.img-area img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+.img-area:hover img {
+	transform: scale(1.1);
+}
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(29, 29, 29, 0.8);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+.single-card:hover .overlay {
+	opacity: 1;
+}
+.view-details {
+	background-color: #fff;
+	color: #333;
+	padding: 10px 15px;
+	border-radius: 4px;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, color 0.3s ease;
+	margin-bottom: 10px;
+}
+.view-details:hover {
+	background-color: rgba(29, 29, 29, 0.8);
+	color: #fff;
+	border: none;
+}
+.info {
+	padding: 10px;
+	text-align: center;
+	color: #ddd;
+}
+.info h4 {
+	margin: 15px 0 10px;
+	font-size: 30px;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-family: 'Bebas Neue', sans-serif;
+}
+.contact {
+    padding: 5% 12%;
+    background-color: rgb(182, 182, 182);
+}
+.content {
+    display: flex;
+}
+.content a {
+    text-decoration: none;
+    color: black;
+}
+.tabel-dua {
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    margin: 0.5%;
+}
+.dua-filled {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+.dua-filled:hover {
+    background-color: rgba(29, 29, 29, 0.8);
+}
+.dua-filled img {
+    max-height: 30px;
+    margin: 1em;
+}
+.dua-filled p {
+    margin: 4% 0%;
+    display: inline-block;
+}
+.dua-filled:hover {
+    color: white;
+}
+footer {
+    background-color: #333;
+    padding: 1%;
+}
+footer h3 {
+    color: white;
+}
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 5% 8%;
+    }
+    .navbar {
+        padding: 2%;
+    }
+    header .logo img {
+        max-height: 180px;
+    }
+    .about {
+        padding: 5% 12%;
+    }
+    .wrapper {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .tabel {
+        flex-direction: column;
+    }
+    .tabel-fill {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .single-card {
+        width: 160px;
+    }
+    .content {
+        flex-direction: column;
+    }
+}

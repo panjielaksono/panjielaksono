@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Italiana&family=Jacquard+12&display=swap');
+* {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F5F7F8;
+}
+.navbar {
+    padding: 0;
+    margin-left: -25px;
+    background-color: #F5F7F8;
+}
+.navbar ul {
+   margin: 1% 1% 1% 0%;;
+}
+.navbar li {
+    font-family: monospace;
+    padding: 1% 1.5%;
+    font-size: 13px;
+    display: inline-block;
+    transition-property: background-color;
+    transition: 200ms;
+}
+.navbar a {
+    text-decoration: none;
+    color: black;
+}
+.navbar li:hover {
+    background-color: #169b6e;
+    width:max-content;
+    border-radius: 8px;
+    color: white;
+}
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #379777;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    transition: all 500ms;
+}  
+#myBtn img {
+    height: 20px;
+}
+#myBtn:hover {
+    background-color: #555;
+}
+header {
+    margin: 10px 0px;
+    padding: 10px 0px;
+    background-color: #F5F7F8;
+    height: 550px;
+}
+header h1 {
+    text-align: center;
+    font-family: Italiana;
+}
+header img {
+    display: block;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%; 
+}
+.definition {
+    border: solid #379777;
+    background-color: #379777;
+    padding: 10px 100px;
+}
+.title {
+    color: white;
+    font-family: Italiana;
+    text-align: center;
+    padding: 1rem;
+}
+.desc {
+    color: white;
+    font-family: monospace;
+    text-align: justify;
+    font-size: 15px;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.bekground {
+    padding: 10px 100px;
+}
+.bekground img {
+    display: block;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.bekground .title, .bekground .desc {
+    color: black;
+}
+.imej {
+    display: flex;
+    height: 200px;
+}
+.wrapper {
+    padding: 0 50px;
+}
+.desc-imej {
+    font-family: monospace;
+    text-align: justify;
+    font-size: 15px;
+    text-align: center;
+    padding: 0 2rem; 
+}
+.revolution {
+    background-color: #00643a;
+    padding: 1rem 6rem;
+}
+.card {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 30px;
+}
+.card-fill {
+    display: flex;
+    flex-direction: column;
+    
+}
+.card-fill img {
+    height: 200px;
+    padding: 0px 10px;
+    transition: all 300ms ease-in-out;
+}
+.card-fill img:hover {
+    transform: translateY(-10px);
+}
+.card-title {
+    padding: 0;
+    font-family: monospace;
+}
+.card-title h3 {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.card-title a {
+    text-decoration: none;
+    color: white;
+}
+.example {
+    background-color: #169b6e;
+    border: solid #169b6e;
+    padding: 2rem 7rem 7rem 7rem;
+}
+.example-imej {
+    display: flex;
+    justify-content: center;
+}
+.example img {
+    height: 300px;
+    margin: 1rem;
+}
+.example .desc {
+    border: solid #169b6e;
+}
+.fix {
+    background-color: #1dad7d;
+    margin: 3% 0%;
+    display: flex;
+    box-shadow: 5px 5px rgb(0, 0, 163), 10px 10px rgb(202, 0, 0), 15px 15px rgb(0, 122, 0);
+}
+.fix img {
+    margin-right: 5rem;
+    height: 250px;
+    /* border:  solid red; */
+}
+.fix-text {
+    margin-top: -20px;
+    padding: 0 2%;
+}
+.fix-text h4 {
+    border: solid #1dad7d;
+    font-family: monospace;
+    font-size: 25px;
+}
+.fix-text li {
+    margin-bottom: 2%;
+    margin-left: -20px;
+    font-family: monospace;
+    color: white;
+    font-size: 15px;
+}
+.perbaikan {
+    margin: 2%;
+}
+.perbaikan .title {
+    color: black;
+}
+.perbaikan-card {
+    display: flex;
+    flex-direction: column;
+}
+.perbaikan-card-fill img {
+    display: block;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+footer {
+    text-align: center;
+    background-color: #333;
+    padding: 1%;
+}
+footer h3 {
+    margin: 0;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 5% 8%;
+    }
+    .navbar {
+        padding: 2%;
+    }
+    .about {
+        padding: 5% 12%;
+    }
+    .wrapper {
+        flex-direction: column;
+    }
+    .imej {
+        flex-direction: column;
+    }
+    .imej img {
+        width: 50%;
+    }
+    .desc-imej {
+        padding-top: 60%;
+    }
+    .card {
+        flex-direction: column;
+    }
+    .example-imej {
+        flex-direction: column;
+    }
+    .fix {
+        padding: 10%;
+        flex-direction: column;
+    }
+}

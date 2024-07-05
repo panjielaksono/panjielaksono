@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Roboto+Mono:wght@500&display=swap');
+* {
+    box-sizing: border-box;
+}
+  
+body {
+    font-family: 'Quicksand', sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #175024;
+}
+    
+h2,h3 {
+    color: green;
+}
+    
+footer {
+    padding: 20px;
+    color: white;
+    background-color: #04300D; 
+    text-align: center;
+    font-weight: bold;
+}
+  
+nav a {
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: none;
+    color: white;
+}
+  
+nav a:hover {
+    font-weight: bold;
+}
+  
+header {
+    display: inline;
+    
+}
+
+.profile header {
+    text-align: center;
+}
+  
+.featured-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+.profile img {
+    width: 200px;
+}
+  
+.card {
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background-color: whitesmoke;
+    padding: 20px;
+}
+  
+.top-header {
+    font-size: 20px;
+    padding: 60px;
+    padding-bottom: 0;
+    
+    text-align: center;
+    color: white;
+}
+.top-header b {
+    font-size: 70px;
+}
+  
+nav li {
+    
+    list-style-type: none;
+    
+}
+  
+nav ul {
+    padding-inline: 4rem;
+    display: flex;
+    gap: 2rem;
+}
+  
+nav {
+    background-color: #04300D;
+    padding: 5px;
+    position: sticky;
+    top: 0;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    gap: 2rem;
+}
+  
+.profile {
+    align-items: center;
+}
+  
+#content {
+    flex: 5;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem 2rem;
+}
+  
+aside {
+    flex: 1;
+}
+aside section {
+    text-align: center;
+}
+
+
+.boutme table {
+    display: flex;   
+    justify-content: center;
+}
+
+img {
+    border-radius: 10px;
+}
+
+#support {
+    text-align: center;
+}
+
+.support-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.konten {
+    text-align: center;
+}
+
+.konten img {
+    height: 50px;
+}
+
+.konten p {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    main {
+      flex-flow: column nowrap;
+    }
+    main aside {
+      align-self: center;
+    }
+}
+  
+@media screen and (max-width: 768px) {
+    nav ul {
+      justify-content: center;
+    }
+    
+    main aside {
+      align-self: stretch;
+    };
+}
