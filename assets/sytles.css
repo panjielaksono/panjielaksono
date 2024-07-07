@@ -336,4 +336,10 @@ footer h3 {
     .content {
         flex-direction: column;
     }
+    .info h4 {
+        font-size: 20px;
+    }
+    .info p {
+        font-size: 15px;
+    }
 }

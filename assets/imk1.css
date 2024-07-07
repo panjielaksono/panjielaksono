@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Italiana&family=Jacquard+12&display=swap');
 * {
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 body {
     margin: 0;
@@ -232,7 +233,7 @@ footer h3 {
 @media screen and (max-width: 768px) {
     header {
         flex-direction: column;
-        padding: 5% 8%;
+        padding: 5% 8%;        
     }
     .navbar {
         padding: 2%;
@@ -265,6 +266,9 @@ footer h3 {
     .fix {
         padding: 10%;
         flex-direction: column;
+    }
+    .perbaikan {
+        padding: 10%;
     }
     .perbaikan-card-fill img {
         width: 100%;    
