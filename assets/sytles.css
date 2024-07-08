@@ -123,6 +123,7 @@ header .logo img {
     margin: 0;
     text-align: center;
     font-family: "Italiana";
+    padding: 1rem;
 }
 .desc {
     font-size: 15px;
@@ -301,14 +302,30 @@ header .logo img {
 footer {
     background-color: #333;
     padding: 1%;
+    text-align: center;
+
 }
 footer h3 {
     color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    
 }
 @media screen and (max-width: 768px) {
     header {
         flex-direction: column;
-        padding: 5% 8%;
+        padding: 5% 5%;
+    }
+    .navbar ul {
+        flex-direction: column;
+    }
+    .navbar li {
+        font-size: 15px;
+    }
+    .navbar a {
+        font-size: 15px;
     }
     .navbar {
         padding: 2%;
