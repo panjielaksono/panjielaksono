@@ -59,7 +59,7 @@ header {
     margin: 10px 0px;
     padding: 10px 0px;
     background-color: #F5F7F8;
-    height: 550px;
+
 }
 header h1 {
     text-align: center;
@@ -105,11 +105,17 @@ header img {
 }
 .imej {
     display: flex;
+}
+.imej img {
     height: 200px;
+    padding: 0px 10px;
 }
 .imej-ilang {
     display: flex;
+}
+.imej-ilang img {
     height: 200px;
+    padding: 0px 10px;
 }
 .wrapper {
     padding: 0 50px;
@@ -233,7 +239,10 @@ footer h3 {
 @media screen and (max-width: 768px) {
     header {
         flex-direction: column;
-        padding: 5% 8%;        
+        padding: 1%;        
+    }
+    header h1 {
+        font-size: 25px;
     }
     .navbar {
         padding: 2%;
@@ -243,6 +252,28 @@ footer h3 {
     }
     .wrapper {
         flex-direction: column;
+    }
+    .example {
+        padding: 5% 12%;
+    }
+    .imej-ilang {
+        padding: 0;
+        margin: 0;
+    }
+    .desc-imej {
+        font-size: 15px;
+    }
+    .fix img {
+        width: 100%;
+    }
+    .fix-text {
+        margin-top: 0;
+    }
+    .fix-text h4 {
+        font-size: 20px;
+    }
+    .fix-text li {
+        font-size: 15px;
     }
     .imej {
         flex-direction: column;
@@ -272,11 +303,17 @@ footer h3 {
     }
     .perbaikan-card-fill img {
         width: 100%;    
+        height: auto;
     }
     .imej-io {
         width: 50%;
     }
     .card-fill-navbar img {
         width: 100%;
+        height: auto;
+    }
+    .card-fill img {
+        width: 100%;
+        height: auto;
     }
 }
