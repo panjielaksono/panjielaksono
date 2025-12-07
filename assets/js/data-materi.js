@@ -248,11 +248,64 @@ const chaptersData = [
                     ` 
             },
             // chapter 4
-            {
-                    title: "Information Security & Risk Management", 
-                    content: `
-                        <p>kaming sun</p>
-                        `
+            { 
+                title: " Networks & Sustainability", 
+                content: `
+                    <h2 style="color:#fa7a3e;"> 4.1 Data Networks & APIs</h2>
+                    <p>Jaringan adalah tulang punggung bisnis digital. Isu utama saat ini adalah transisi dari <b>IPv4</b> (yang sudah habis) ke <b>IPv6</b> untuk mengakomodasi miliaran perangkat IoT baru.</p>
+                    
+                    <div style="background:#e3f2fd; padding:15px; border-radius:8px; margin-bottom:15px;">
+                        <h4 style="margin-top:0; color:#1565c0;"> Case Study: Sony's IPv6 Migration</h4>
+                        <p style="font-size:13px;">
+                            <b>Masalah:</b> Sony memiliki banyak anak perusahaan dengan jaringan independen yang menggunakan alamat IP duplikat, menghambat komunikasi dan kolaborasi global.<br>
+                            <b>Solusi:</b> Migrasi ke jaringan IPv6 yang menyediakan alamat IP hampir tak terbatas.<br>
+                            <b>Hasil:</b> Terciptanya "One Sony" dengan kolaborasi real-time tanpa hambatan antar unit bisnis global.
+                        </p>
+                    </div>
+
+                    <p><strong>API (Application Programming Interface):</strong></p>
+                    <p>Gerbang software yang memungkinkan aplikasi berbeda untuk saling berbicara. Contoh: Uber menggunakan Google Maps API untuk peta.</p>
+                    <hr style="margin:20px 0; opacity:0.3;">
+
+                    <h2 style="color:#fa7a3e;"> 4.2 Wireless & Mobile Infrastructure</h2>
+                    <p>Revolusi <b>4G & 5G</b> serta teknologi jarak dekat mengubah cara kita berinteraksi dengan dunia fisik.</p>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom:20px;">
+                        <div style="border:1px solid #ddd; padding:10px; border-radius:5px;">
+                            <b>NFC (Near Field Comm):</b><br>Komunikasi jarak sangat dekat (tap). Digunakan untuk pembayaran (Apple Pay) dan tiket elektronik.
+                        </div>
+                        <div style="border:1px solid #ddd; padding:10px; border-radius:5px;">
+                            <b>WiMAX & LTE:</b><br>Standar jaringan nirkabel kecepatan tinggi untuk area luas (MAN/WAN).
+                        </div>
+                        <div style="border:1px solid #ddd; padding:10px; border-radius:5px;">
+                            <b>Smart City:</b><br>Contoh: Santander, Spanyol menggunakan ribuan sensor untuk memantau lalu lintas dan polusi secara real-time.
+                        </div>
+                    </div>
+                    <hr style="margin:20px 0; opacity:0.3;">
+
+                    <h2 style="color:#fa7a3e;"> 4.3 Collaboration Technologies</h2>
+                    <p>Teknologi jaringan memungkinkan kerja kelompok virtual dan berbagi pengetahuan (Knowledge Sharing).</p>
+                    
+                    <ul style="background:#f5f5f5; padding:15px 15px 15px 30px; border-radius:8px;">
+                        <li><b>Intranet:</b> Jaringan privat internal perusahaan untuk karyawan.</li>
+                        <li><b>Extranet:</b> Jaringan privat yang bisa diakses pihak luar terpercaya (supplier/partner).</li>
+                        <li><b>VPN (Virtual Private Network):</b> Terowongan enkripsi aman untuk mengakses jaringan perusahaan dari jarak jauh.</li>
+                    </ul>
+                    <hr style="margin:20px 0; opacity:0.3;">
+
+                    <h2 style="color:#fa7a3e;"> 4.4 Sustainability & Green IT</h2>
+                    <p>Industri ICT menyumbang jejak karbon signifikan. <b>Green IT</b> berfokus pada pengurangan dampak lingkungan melalui efisiensi energi di data center dan pengurangan limbah elektronik (e-waste).</p>
+                    
+                    <div style="background:#ffebee; padding:10px; border-left:4px solid #d32f2f;">
+                        <strong> Ethical Issue: Distracted Driving</strong><br>
+                        Konektivitas konstan memiliki sisi gelap. Penggunaan ponsel saat mengemudi (texting/calling) meningkatkan risiko kecelakaan secara signifikan, memicu banyak negara membuat hukum pelarangan yang ketat.
+                    </div>
+
+                    <div style="background:#333; color:white; padding:20px; border-radius:10px; margin-top:30px; border:2px solid #fa7a3e;">
+                        <h3 style="color:#fa7a3e; margin-top:0;"> Kesimpulan Chapter 4</h3>
+                        <p>Jaringan bukan hanya soal kabel dan sinyal, tapi tentang efisiensi operasional dan keberlanjutan. Tantangannya adalah menyeimbangkan kebutuhan akan kecepatan (5G/Broadband) dengan tanggung jawab lingkungan (Green IT) dan etika sosial.</p>
+                    </div>
+                ` 
             },
             // chapter 5
             { 

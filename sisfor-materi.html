@@ -14,7 +14,6 @@
         rel="stylesheet">
 
     <style>
-        /* --- 1. RESET --- */
         * {
             margin: 0;
             padding: 0;
@@ -29,7 +28,6 @@
             font-family: 'Inconsolata', monospace;
         }
 
-        /* --- 2. HEADER --- */
         .top-bar {
             background: #fff;
             padding: 15px 20px;
@@ -105,24 +103,20 @@
 
         .sidebar a:hover {
             background-color: rgba(255, 255, 255, 0.2);
-            /* Efek transparan putih */
             padding-left: 30px;
         }
 
-        /* State Aktif: Background Putih, Teks Orange */
         .sidebar a.active {
             background: #fff;
             color: #fa7a3e;
             font-weight: bold;
             border-left: 5px solid #333;
-            /* Aksen abu gelap */
         }
 
         .sidebar.open {
             left: 0;
         }
 
-        /* --- 4. TOGGLE BUTTON --- */
         .toggle-tab {
             position: fixed;
             top: 100px;
@@ -149,8 +143,6 @@
             background-color: #e66023;
         }
 
-        /* Gelapin dikit pas hover */
-
         .sidebar.open~.toggle-tab {
             left: 280px;
         }
@@ -168,7 +160,6 @@
             backdrop-filter: blur(2px);
         }
 
-        /* --- 5. CONTENT --- */
         .main-content {
             max-width: 800px;
             margin: 40px auto;
@@ -211,7 +202,6 @@
             margin-bottom: 1.5em;
         }
 
-        /* --- 6. BOTTOM NAV (JUDUL) --- */
         .bottom-nav {
             max-width: 800px;
             margin: 50px auto;
@@ -219,12 +209,10 @@
             display: flex;
             justify-content: space-between;
             gap: 20px;
-            /* Jarak antar tombol */
         }
 
         .nav-btn {
             flex: 1;
-            /* Biar ukurannya seimbang */
             background-color: #fff;
             border: 2px solid #fa7a3e;
             color: #fa7a3e;
@@ -237,10 +225,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Teks di tengah */
             text-align: center;
             min-height: 60px;
-            /* Tinggi minimal biar tombolnya berbobot */
         }
 
         .nav-btn:hover {
@@ -269,7 +255,6 @@
             line-height: 1.2;
         }
 
-        /* Sembunyikan tombol kalau mentok (invisible tapi tetep makan tempat layout) */
         .hidden-btn {
             visibility: hidden;
             pointer-events: none;
@@ -284,7 +269,6 @@
                 flex-direction: column;
             }
 
-            /* Di HP tombol jadi atas-bawah */
         }
     </style>
 </head>
