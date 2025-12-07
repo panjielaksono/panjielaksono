@@ -1,143 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="assets/image/imk.png">
-    <link rel="stylesheet" href="assets/imk1.css">
     <title>Interaksi Manusia dan Komputer</title>
+    <link rel="icon" href="assets/image/imk.png">
+
+    <link rel="stylesheet" href="assets/imk1.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600&family=Italiana&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <!-- navbar -->
+
     <nav class="navbar">
-        <ul>
-            <a href="#home"><li>Home</li></a>
-            <a href="#about"><li>About</li></a>
-            <a href="#proses"><li>Proses</li></a>
-            <a href="#revo"><li>Revolusi</li></a>
-            <a href="#ex"><li>Implementasi</li></a>
-            <a href="#fix"><li>Perbaikan</li></a>
+        <a href="index.html" class="nav-logo">← Back to Portfolio</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#proses">Proses</a></li>
+            <li><a href="#revo">Revolusi</a></li>
+            <li><a href="#ex">Studi Kasus</a></li>
+            <li><a href="#fix">Perbaikan</a></li>
         </ul>
     </nav>
-    <!-- button -->
-    <button onclick="topFunction()" id="myBtn" title="Go to top">
-        <img src="assets/image/top.png" alt="">
-    </button>
-    <!-- Heaader -->
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">↑</button>
+
     <header id="home">
-        <h1>Interaksi Manusia dan Komputer</h1>
-        <img src="assets/image/ui.webp" alt="">
+        <h1>Interaksi Manusia & Komputer</h1>
+        <p style="color: var(--text-light); margin-bottom: 30px;">Eksplorasi konsep, sejarah, dan implementasi UI/UX.
+        </p>
+        <img src="assets/image/ui.webp" alt="UI Design Illustration">
     </header>
-    <!-- Pengertian -->
+
     <section class="definition" id="about">
-        <h2 class="title">Apa itu IMK?</h2>
-        <p class="desc">Sebuah hubungan antara manusia dan komputer yang mempunyai karakteristik tertentu untuk mencapai suatu tujuan tertentu dengan menjalankan sebuah sistem yang bertopengkan sebuah antarmuka (interface)</p>
+        <h2 class="section-title">Apa itu IMK?</h2>
+        <p class="section-desc">
+            Sebuah hubungan antara manusia dan komputer yang mempunyai karakteristik tertentu untuk mencapai suatu
+            tujuan tertentu dengan menjalankan sebuah sistem yang bertopengkan sebuah antarmuka (interface).
+        </p>
     </section>
-    <!-- Latar Belakang -->
+
     <section class="bekground" id="proses">
-        <h2 class="title">Proses</h2>
-        <img src="assets/image/IO.jpg" alt="" class="imej-io">
-        <p class="desc">Pada dasarnya manusia berinteraksi dengan sistem (mesin) namun untuk mempermudah dalam penggunaannya maka dibentuklah antarmuka / user interface. Tujuannya adalah pengoperasian dan kontrol mesin yang efektif dan feedback dari mesin yang membantu operator dalam membuat keputusan operasional.</p>
-        <div class="wrapper">
-        <div class="imej">
-            <img src="assets/image/typing.jpg" alt="">
-            <div class="imej imej-ilang">
-            <img src="assets/image/phone.jpg" alt="">
-            <img src="assets/image/vr.jpg" alt="">
+        <h2 class="section-title">Proses Interaksi</h2>
+
+        <div class="content-grid">
+            <div class="text-area">
+                <p>Pada dasarnya manusia berinteraksi dengan sistem (mesin). Untuk mempermudah penggunaannya,
+                    dibentuklah <b>User Interface (Antarmuka)</b>.</p>
+                <br>
+                <p>Tujuannya adalah pengoperasian dan kontrol mesin yang efektif, serta memberikan <i>feedback</i> yang
+                    membantu operator dalam membuat keputusan.</p>
+            </div>
+            <div class="img-area">
+                <img src="assets/image/IO.jpg" alt="Input Output Process" class="content-img">
             </div>
         </div>
+
+        <div style="margin-top: 50px; text-align: center;">
+            <p style="max-width: 700px; margin: 0 auto; color: var(--text-light);">
+                Tanpa disadari, kita berdialog dengan layar monitor melalui input (keyboard/mouse/touch) yang kemudian
+                diolah menjadi output informasi yang kita harapkan.
+            </p>
         </div>
-        <p class="desc-imej"> Tanpa disadari kita (manusia/user) telah berinteraksi atau berdialog dengan sebuah benda (layar monitor), yaitu dalam bentuk menekan tombol berupa tombol angka dan huruf yang ada pada keyboard atau melakukan satu sentuhan kecil pada mouse. Yang kemudian hasil inputan ini akan berubah bentuk menjadi informasi atau data yang seperti diharapkan manusia dengan tertampilnya informasi baru tersebut pada layar monitor atau bahkan mesin pencetak (printer)</p>
     </section>
-    <!-- Revolusi -->
+
     <section class="revolution" id="revo">
-        <h2 class="title">Revolusi Antarmuka</h2>
-        <div class="card">
-            <div class="card-fill">
-            <img src="assets/image/ww2.jpeg" alt="">
-            <div class="card-title"><a href="https://www.theverge.com/2013/3/21/4127110/40-years-of-icons-the-evolution-of-the-modern-computer-interface" target="_blank"><h3>World War 2(1939)</h3></a></div>
+        <h2 class="section-title">Revolusi Antarmuka</h2>
+        <div class="card-wrapper">
+
+            <div class="card">
+                <img src="assets/image/ww2.jpeg" alt="WW2 Interface">
+                <div class="card-content">
+                    <a href="https://www.theverge.com/2013/3/21/4127110/40-years-of-icons-the-evolution-of-the-modern-computer-interface"
+                        target="_blank">
+                        <h3>World War 2 (1939)</h3>
+                    </a>
+                </div>
             </div>
-            <div class="card-fill">
-            <img src="assets/image/cli.png" alt="">
-            <div class="card-title"><a href="https://en-m-wikipedia-org.translate.goog/wiki/Command-line_interface?_x_tr_sl=en&_x_tr_tl=id&_x_tr_hl=id&_x_tr_pto=tc" target="_blank"><h3>Command Line Interface</h3></a></div>
+
+            <div class="card">
+                <img src="assets/image/cli.png" alt="CLI">
+                <div class="card-content">
+                    <a href="https://en.wikipedia.org/wiki/Command-line_interface" target="_blank">
+                        <h3>Command Line (CLI)</h3>
+                    </a>
+                </div>
             </div>
-            <div class="card-fill">
-            <img src="assets/image/gui.jpg" alt="">
-            <div class="card-title"><a href="https://en.wikipedia.org/wiki/Graphical_user_interface" target="_blank"><h3>Graphical User Interface</h3></a></div>
+
+            <div class="card">
+                <img src="assets/image/gui.jpg" alt="GUI">
+                <div class="card-content">
+                    <a href="https://en.wikipedia.org/wiki/Graphical_user_interface" target="_blank">
+                        <h3>Graphical UI (GUI)</h3>
+                    </a>
+                </div>
             </div>
-            <div class="card-fill">
-            <img src="assets/image/interactive.jpeg" alt="">
-            <div class="card-title"><a href="https://21stcenturyav.com/what-is-an-interactive-display-system/" target="_blank"><h3>Interactive Screen</h3></a></div>
+
+            <div class="card">
+                <img src="assets/image/interactive.jpeg" alt="Interactive">
+                <div class="card-content">
+                    <a href="https://21stcenturyav.com/what-is-an-interactive-display-system/" target="_blank">
+                        <h3>Interactive Screen</h3>
+                    </a>
+                </div>
             </div>
+
         </div>
     </section>
-    <!-- Implementasi -->
+
     <section class="example" id="ex">
-        <h2 class="title">Implementasi</h2>
-        <div class="example-imej">
-            <img src="assets/image/bsi1.jpg" alt="">
-            <img src="assets/image/bsi.jpg" alt="">
-        </div>
-        <p class="desc">Menurut pandangan saya sebagai user, website diatas kurang mementingkan user experince. Kalau bicara soal fungsi, memang website diatas sudah memenuhi tugasnya. Apa yang diserve oleh website tersebut bisa dibilang "seadanya", kurang di explore lagi.</p>
-        <!-- fix -->
-        <div class="fix">
-            <img src="assets/image/fix.png" alt="">
-            <div class="fix-text">
-                <h4>Berikut hal yang kurang / perlu diperbaiki menurut saya :</h4>
+        <h2 class="section-title">Analisis Studi Kasus</h2>
+        <p class="section-desc">Analisis UX pada website BSI (Bina Sarana Informatika) versi lama.</p>
+
+        <div class="case-study">
+            <div class="case-img">
+                <img src="assets/image/bsi1.jpg" alt="Website Lama">
+            </div>
+            <div class="case-text">
+                <h4>⚠️ Masalah (Pain Points)</h4>
+                <p style="font-size: 0.9rem; margin-bottom: 15px;">Website ini secara fungsi berjalan, namun kurang
+                    memperhatikan <i>User Experience</i>.</p>
                 <ul>
-                <li>Pemilihan warna yang kurang tepat pada bagian navbar.</li>
-                <li>Website masih memiliki banyak sekali space kosong.</li>
-                <li>Arrow pada banner kurang praktis(simple).</li>
-                <li>Slogan "Kuliah? BSI Ajaa!!", pada pojok kanan bawah terlihat masih polos, sangat kelihatan kalau text merupakan link.</li>
-                <li>Footer terlalu singkat, tidak ada info mengenai content</li>
+                    <li>Warna navbar kurang kontras dan tidak menarik.</li>
+                    <li>Terlalu banyak <i>white space</i> yang tidak dimanfaatkan (kosong).</li>
+                    <li>Ikon navigasi (Arrow) terlihat kaku/kuno.</li>
+                    <li>Call-to-Action (Slogan) terlihat seperti teks biasa, bukan link.</li>
+                    <li>Footer terlalu minim informasi.</li>
                 </ul>
             </div>
         </div>
-        <!-- solution -->
-        <div class="fix">
-            <img src="assets/image/solution.jpg" alt="">
-            <div class="fix-text">
-                <h4>Berikut Solusi Yang dapat saya berikan :</h4>
+
+        <div class="case-study" style="flex-direction: row-reverse;">
+            <div class="case-img">
+                <img src="assets/image/solution.jpg" alt="Solusi UI">
+            </div>
+            <div class="case-text">
+                <h4 style="border-color: #2e7d32;">✅ Solusi & Saran</h4>
+                <p style="font-size: 0.9rem; margin-bottom: 15px;">Perbaikan untuk meningkatkan kenyamanan pengguna:</p>
                 <ul>
-                    <li>Mengganti warna text di bagian navbar.</li>
-                    <li>Membuat website lebih fit on screen, mengurangi space kosong</li>
-                    <li>Mengganti icon arrow pada banner, agar terlihat lebih fresh</li>
-                    <li>SMemberi variasi pada text slogan</li>
-                    <li>Mengisi footer website dengan informasi terkait content</li>
+                    <li>Ganti palet warna navbar agar lebih modern & terbaca.</li>
+                    <li>Optimalkan layout agar <i>Fit to Screen</i> (mengurangi space kosong).</li>
+                    <li>Gunakan ikonografi modern (Vector/SVG) yang lebih fresh.</li>
+                    <li>Berikan <i>visual cue</i> (tombol/warna) pada link slogan.</li>
+                    <li>Lengkapi footer dengan sitemap dan kontak lengkap.</li>
                 </ul>
-            </div>
-        </div>
-    </section>
-    <!-- Perbaikan -->
-    <section class="perbaikan" id="fix">
-        <h2 class="title">Perbaikan</h2>
-        <div class="perbaikan-card">
-            <div class="perbaikan-card-fill">
-            <img src="assets/image/navbar.png" alt=""  style="height: 80px;">
-            <div class="card-title"><h3>Navbar</h3></div>
-            </div>
-            <div class="card-fill">
-            <img src="assets/image/arro.png" alt=""  style="width: 30%;">
-            <div class="card-title"><h3>Arrow</h3></div>
-            </div>
-            <div class="card-fill-navbar">
-            <img src="assets/image/kaki.png" alt="" >
-            <div class="card-title"><h3>Footer</h3></div>
             </div>
         </div>
     </section>
 
-    <!-- footer -->
-    <footer>
-        <h3 class="title">panjielaksono</h3>
-    </footer>
+    <section class="perbaikan" id="fix">
+        <h2 class="section-title">Fokus Perbaikan</h2>
+        <div class="fix-grid">
+
+            <div class="fix-item">
+                <div class="fix-text-wrapper">
+                    <h3>Navbar Redesign</h3>
+                    <p>Mengubah struktur navigasi menjadi lebih modern dengan pemilihan warna kontras yang ramah mata
+                        dan layout yang responsif.</p>
+                </div>
+                <img src="assets/image/navbar.png" alt="Navbar Design">
+            </div>
+
+            <div class="fix-item">
+                <div class="fix-text-wrapper">
+                    <h3>Modern Iconography</h3>
+                    <p>Mengganti aset visual lama dengan ikon vektor yang lebih segar, konsisten, dan intuitif untuk
+                        meningkatkan User Experience.</p>
+                </div>
+                <img src="assets/image/arro.png" alt="Iconography">
+            </div>
+
+            <div class="fix-item">
+                <div class="fix-text-wrapper">
+                    <h3>Informative Footer</h3>
+                    <p>Memperluas area footer dengan informasi kontak, sitemap, dan tautan sosial media agar pengguna
+                        tidak kehilangan arah.</p>
+                </div>
+                <img src="assets/image/kaki.png" alt="Footer Info">
+            </div>
+
+        </div>
+    </section>
+
+<footer>
+    <div class="footer-container">
+        <h3 class="footer-brand">Much Panji Laksono</h3>
+        <p class="footer-tagline">Software Engineer • Web Developer • Mobile Developer</p>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            <span class="copyright">&copy; 2025 Panji Laksono. All Rights Reserved.</span>
+            <span class="tech-stack">Built with <span style="color:var(--primary-color);">♥</span> and Vanilla
+                Code.</span>
+        </div>
+    </div>
+</footer>
 
     <script>
         let mybutton = document.getElementById("myBtn");
-        window.onscroll = function() {scrollFunction()};
+        window.onscroll = function () { scrollFunction() };
 
-        function scrollFunction(){
+        function scrollFunction() {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                 mybutton.style.display = "block";
             } else {
@@ -145,11 +216,12 @@
             }
         }
 
-        function topFunction(){
+        function topFunction() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
     </script>
-    
+
 </body>
+
 </html>

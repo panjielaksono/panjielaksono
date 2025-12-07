@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi - Much Panji Laksono</title>
+    <link rel="icon" href="assets/image/dusty.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Italiana&family=Bebas+Neue&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- 1. RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+            font-family: 'Inconsolata', monospace;
+        }
+
+        /* --- 2. HEADER --- */
+        .top-bar {
+            background: #fff;
+            padding: 15px 20px;
+            padding-left: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-bar h3 {
+            font-family: 'Italiana', serif;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .back-link {
+            text-decoration: none;
+            font-family: 'Inconsolata', monospace;
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+            padding: 8px 16px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: #fa7a3e;
+            color: #fff;
+            border-color: #fa7a3e;
+        }
+
+        /* --- 3. SIDEBAR (Sekarang Orange #fa7a3e) --- */
+        .sidebar {
+            height: 100%;
+            width: 280px;
+            position: fixed;
+            z-index: 200;
+            top: 0;
+            left: -280px;
+            background-color: #fa7a3e;
+            /* SAMA DENGAN BUTTON */
+            overflow-x: hidden;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding-top: 80px;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h4 {
+            color: white;
+            padding: 0 25px 20px;
+            font-family: 'Italiana';
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 1.2rem;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Inconsolata', monospace;
+            color: white;
+            /* Teks Putih */
+            display: block;
+            transition: 0.2s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            /* Efek transparan putih */
+            padding-left: 30px;
+        }
+
+        /* State Aktif: Background Putih, Teks Orange */
+        .sidebar a.active {
+            background: #fff;
+            color: #fa7a3e;
+            font-weight: bold;
+            border-left: 5px solid #333;
+            /* Aksen abu gelap */
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        /* --- 4. TOGGLE BUTTON --- */
+        .toggle-tab {
+            position: fixed;
+            top: 100px;
+            left: 0;
+            width: 45px;
+            height: 55px;
+            background-color: #fa7a3e;
+            color: white;
+            border-radius: 0 50px 50px 0;
+            z-index: 300;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-size: 24px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 5px;
+        }
+
+        .toggle-tab:hover {
+            background-color: #e66023;
+        }
+
+        /* Gelapin dikit pas hover */
+
+        .sidebar.open~.toggle-tab {
+            left: 280px;
+        }
+
+        .overlay-bg {
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 150;
+            cursor: pointer;
+            backdrop-filter: blur(2px);
+        }
+
+        /* --- 5. CONTENT --- */
+        .main-content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 25px;
+            min-height: 60vh;
+        }
+
+        .chapter-header {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 20px;
+        }
+
+        .chapter-label {
+            color: #fa7a3e;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            font-family: 'Inconsolata', monospace;
+        }
+
+        .chapter-title {
+            font-family: "Italiana", serif;
+            font-size: 3rem;
+            margin-top: 10px;
+            color: #111;
+            line-height: 1.1;
+        }
+
+        .chapter-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+            font-family: 'Inconsolata', monospace;
+        }
+
+        .chapter-body p {
+            margin-bottom: 1.5em;
+        }
+
+        /* --- 6. BOTTOM NAV (JUDUL) --- */
+        .bottom-nav {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 25px 80px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            /* Jarak antar tombol */
+        }
+
+        .nav-btn {
+            flex: 1;
+            /* Biar ukurannya seimbang */
+            background-color: #fff;
+            border: 2px solid #fa7a3e;
+            color: #fa7a3e;
+            padding: 15px 20px;
+            font-size: 14px;
+            font-family: 'Inconsolata', monospace;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Teks di tengah */
+            text-align: center;
+            min-height: 60px;
+            /* Tinggi minimal biar tombolnya berbobot */
+        }
+
+        .nav-btn:hover {
+            background-color: #fa7a3e;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(250, 122, 62, 0.3);
+        }
+
+        .nav-label {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .nav-small {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-big {
+            font-weight: bold;
+            font-size: 1rem;
+            line-height: 1.2;
+        }
+
+        /* Sembunyikan tombol kalau mentok (invisible tapi tetep makan tempat layout) */
+        .hidden-btn {
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .chapter-title {
+                font-size: 2rem;
+            }
+
+            .bottom-nav {
+                flex-direction: column;
+            }
+
+            /* Di HP tombol jadi atas-bawah */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="overlay" class="overlay-bg" onclick="toggleSidebar()"></div>
+
+    <div id="mySidebar" class="sidebar">
+        <h4>Daftar Materi</h4>
+        <div id="sidebar-list"></div>
+    </div>
+
+    <button id="tabBtn" class="toggle-tab" onclick="toggleSidebar()">&#8942;</button>
+
+    <div class="top-bar">
+        <h3>Sistem Informasi</h3>
+        <a href="index.html" class="back-link">Back to Home</a>
+    </div>
+
+    <div class="main-content">
+        <div class="chapter-header">
+            <div class="chapter-label" id="label-display">Chapter 1</div>
+            <h1 class="chapter-title" id="title-display">Loading...</h1>
+        </div>
+        <div class="chapter-body" id="content-display"></div>
+    </div>
+
+    <div class="bottom-nav">
+        <button class="nav-btn" id="btn-prev" onclick="changeChapter(-1)">
+            <div class="nav-label" style="align-items: flex-start;"> <span class="nav-small">← Previous</span>
+                <span class="nav-big" id="prev-title">Judul Chapter</span>
+            </div>
+        </button>
+
+        <button class="nav-btn" id="btn-next" onclick="changeChapter(1)">
+            <div class="nav-label" style="align-items: flex-end;"> <span class="nav-small">Next →</span>
+                <span class="nav-big" id="next-title">Judul Chapter</span>
+            </div>
+        </button>
+    </div>
+
+    <!-- materi buanyak bro ini  -->
+    <script src="assets/js/data-materi.js"></script>
+    
+    <script>
+        // --- A. DEKLARASI VARIABEL GLOBAL ---
+        // Cek dulu datanya ada atau ngga. Kalau ga ada, kasih array kosong biar ga error.
+        const chapters = (typeof chaptersData !== 'undefined') ? chaptersData : [];
+
+        let currentIndex = 0;
+        const sidebar = document.getElementById('mySidebar');
+        const overlay = document.getElementById('overlay');
+        const tabBtn = document.getElementById('tabBtn');
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+        const prevTitle = document.getElementById('prev-title');
+        const nextTitle = document.getElementById('next-title');
+
+        // --- B. DEFINISI FUNGSI (HARUS GLOBAL / DI LUAR IF) ---
+
+        function initSidebar() {
+            const list = document.getElementById('sidebar-list');
+            list.innerHTML = "";
+            chapters.forEach((ch, idx) => {
+                const a = document.createElement('a');
+                a.innerText = `${idx + 1}. ${ch.title}`;
+                a.href = "#";
+                a.onclick = (e) => {
+                    e.preventDefault();
+                    currentIndex = idx;
+                    renderContent();
+                    toggleSidebar();
+                };
+                // Tambahkan class active jika index sama
+                if (idx === currentIndex) a.classList.add('active');
+                list.appendChild(a);
+            });
+        }
+
+        function renderContent() {
+            // Safety check: Kalau datanya kosong, stop disini
+            if (chapters.length === 0) {
+                document.getElementById('title-display').innerText = "Error: Data Materi Tidak Ditemukan";
+                document.getElementById('content-display').innerHTML = "<p>Pastikan file data-materi.js sudah diload dengan benar.</p>";
+                return;
+            }
+
+            const ch = chapters[currentIndex];
+            document.getElementById('label-display').innerText = `CHAPTER ${currentIndex + 1}`;
+            document.getElementById('title-display').innerText = ch.title;
+            document.getElementById('content-display').innerHTML = ch.content;
+
+            // LOGIC PREV BUTTON
+            if (currentIndex > 0) {
+                btnPrev.classList.remove('hidden-btn');
+                prevTitle.innerText = chapters[currentIndex - 1].title;
+                btnPrev.disabled = false;
+            } else {
+                btnPrev.classList.add('hidden-btn');
+                btnPrev.disabled = true;
+            }
+
+            // LOGIC NEXT BUTTON
+            if (currentIndex < chapters.length - 1) {
+                btnNext.classList.remove('hidden-btn');
+                nextTitle.innerText = chapters[currentIndex + 1].title;
+                btnNext.disabled = false;
+            } else {
+                btnNext.classList.add('hidden-btn');
+                btnNext.disabled = true;
+            }
+
+            // Update Active Sidebar
+            const links = document.querySelectorAll('.sidebar a');
+            links.forEach((l, i) => {
+                l.classList.remove('active');
+                if (i === currentIndex) l.classList.add('active');
+            });
+
+            window.scrollTo(0, 0);
+        }
+
+        function changeChapter(dir) {
+            if (currentIndex + dir >= 0 && currentIndex + dir < chapters.length) {
+                currentIndex += dir;
+                renderContent();
+            }
+        }
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+            if (sidebar.classList.contains('open')) {
+                overlay.style.display = "block";
+                tabBtn.innerHTML = "&#10094;"; // arrow kiri
+            } else {
+                overlay.style.display = "none";
+                tabBtn.innerHTML = "&#8942;"; // triple point
+            }
+        }
+
+        // --- C. EKSEKUSI UTAMA ---
+
+        if (chapters.length > 0) {
+            initSidebar();
+            renderContent();
+        } else {
+            console.error("Gagal memuat materi. Cek path file data-materi.js");
+            document.getElementById('title-display').innerText = "Gagal Memuat Data";
+        }
+
+    </script>
+</body>
+
+</html>
