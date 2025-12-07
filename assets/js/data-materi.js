@@ -167,7 +167,7 @@ const chaptersData = [
                         <p>Data adalah aset paling berharga. Melalui manajemen data, Big Data, dan pengelolaan arsip, organisasi bisa mencapai efisiensi jangka panjang.</p>
                         <hr style="margin:20px 0; opacity:0.3;">
 
-                        <h2 style="color:#fa7a3e;"> 2.1 Database Management (DBMS)</h2>
+                        <h2 style="color:#fa7a3e;"> 3.1 Database Management (DBMS)</h2>
                         <p><strong>Database</strong> menyimpan data operasional harian, sedangkan <strong>Data Warehouse</strong> menyimpan data historis untuk analisis.</p>
                         
                         <div style="background:#fff3e0; padding:15px; border-left:4px solid #fa7a3e; margin:15px 0;">
@@ -181,7 +181,7 @@ const chaptersData = [
                         <p><strong> Master Reference File (MRF):</strong> Sumber data utama acuan (contoh: data pelanggan) untuk mencegah duplikasi dan menjamin konsistensi.</p>
                         <hr style="margin:20px 0; opacity:0.3;">
 
-                        <h2 style="color:#fa7a3e;"> 2.2 Data Warehouse & Big Data</h2>
+                        <h2 style="color:#fa7a3e;"> 3.2 Data Warehouse & Big Data</h2>
                         <p>DW menyatukan data lewat proses <b>ETL (Extract, Transform, Load)</b>. Ada juga <i>Active DW</i> untuk update real-time.</p>
                         
                         <div style="border:1px solid #ddd; padding:15px; border-radius:8px; margin-top:10px;">
@@ -196,7 +196,7 @@ const chaptersData = [
                         </div>
                         <hr style="margin:20px 0; opacity:0.3;">
 
-                        <h2 style="color:#fa7a3e;"> 2.3 Data & Text Mining</h2>
+                        <h2 style="color:#fa7a3e;"> 3.3 Data & Text Mining</h2>
                         <p><b>Data Mining:</b> Pola dari data terstruktur.<br>
                         <b>Text Mining:</b> Pola dari data tidak terstruktur (email, sosmed).</p>
 
@@ -209,7 +209,7 @@ const chaptersData = [
                             </ul>
                         </div>
 
-                        <h2 style="color:#fa7a3e;"> 2.4 Business Intelligence (BI)</h2>
+                        <h2 style="color:#fa7a3e;"> 3.4 Business Intelligence (BI)</h2>
                         <p>Integrasi data dan analisis untuk optimasi keputusan.</p>
 
                         <table style="width:100%; border-collapse: collapse; margin:15px 0; font-size:14px;">
@@ -226,7 +226,7 @@ const chaptersData = [
                         <p> <b>Tantangan:</b> Information overload & kualitas data buruk.</p>
                         <hr style="margin:20px 0; opacity:0.3;">
 
-                        <h2 style="color:#fa7a3e;"> 2.5 Electronic Records (ERM)</h2>
+                        <h2 style="color:#fa7a3e;"> 3.5 Electronic Records (ERM)</h2>
                         <p>Sistem pengelolaan arsip digital untuk kebutuhan audit dan hukum (Legalitas).</p>
                         
                         <p><strong> Prinsip ARMA (Standar Internasional):</strong></p>
