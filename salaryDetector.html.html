@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career & Salary Predictor</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Poppins', sans-serif;
+        }
+        .header-section {
+            background: linear-gradient(135deg, #0d6efd 0%, #0043a8 100%);
+            color: white;
+            padding: 40px 0;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(13, 110, 253, 0.2);
+        }
+        .card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .form-control, .form-select {
+            border-radius: 12px;
+            padding: 12px;
+            border: 1px solid #dee2e6;
+        }
+        .btn-predict {
+            background: linear-gradient(90deg, #0d6efd, #0099ff);
+            border: none;
+            border-radius: 12px;
+            padding: 15px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+        }
+        .btn-predict:hover {
+            background: linear-gradient(90deg, #0056b3, #007bff);
+            transform: scale(1.02);
+        }
+        .salary-display {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2c3e50;
+        }
+        .badge-rule {
+            display: none; /* Hidden by default */
+            font-size: 0.85rem;
+            padding: 8px 15px;
+            border-radius: 50px;
+            margin-top: 10px;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Loading Spinner Overlay */
+        #loadingOverlay {
+            display: none;
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.8);
+            z-index: 10;
+            border-radius: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-section text-center">
+    <div class="container">
+        <h1 class="fw-bold"><i class="fas fa-robot me-2"></i>Smart Career Predictor</h1>
+        <p class="opacity-75">Hybrid Artificial Intelligence: Machine Learning + Rule-Based Reasoning</p>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row g-4">
+        
+        <div class="col-lg-4">
+            <div class="card h-100">
+                <div class="card-header bg-white border-0 pt-4 px-4">
+                    <h5 class="fw-bold text-primary"><i class="fas fa-sliders-h me-2"></i>Parameter Input</h5>
+                </div>
+                <div class="card-body px-4 pb-4">
+                    <form id="predictionForm">
+                        
+                        <div class="mb-3">
+                            <label class="form-label small text-muted fw-bold">POSISI / ROLE</label>
+                            <select class="form-select" id="role">
+                                <option value="backend">Backend Engineer</option>
+                                <option value="frontend">Frontend Engineer</option>
+                                <option value="fullstack">Fullstack Developer</option>
+                                <option value="mobile">Mobile Developer</option>
+                                <option value="data">Data Scientist</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small text-muted fw-bold">PENGALAMAN KERJA</label>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <input type="range" class="form-range flex-grow-1 me-3" min="0" max="20" step="1" id="experience" value="2" oninput="updateExpLabel(this.value)">
+                                <span class="badge bg-primary fs-6"><span id="expVal">2</span> Th</span>
+                            </div>
+                        </div>
+
+                        <hr class="my-4" style="border-style: dashed;">
+                        
+                        <div class="alert alert-light border-start border-4 border-warning mb-3">
+                            <small class="text-dark"><i class="fas fa-exclamation-triangle text-warning me-1"></i> <strong>Faktor Penentu (Rules):</strong> Lokasi & Tipe Kerja akan mempengaruhi hasil ML secara drastis.</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small text-muted fw-bold">DOMISILI SAAT INI</label>
+                            <select class="form-select" id="location">
+                                <option value="jakarta">Jakarta (Base Standard)</option>
+                                <option value="bali">Bali (Denpasar/Ubud)</option>
+                                <option value="batam">Batam</option>
+                                <option value="surabaya">Surabaya</option>
+                                
+                                <option value="bandung">Bandung</option>
+                                <option value="medan">Medan</option>
+                                <option value="makassar">Makassar</option>
+                                <option value="semarang">Semarang</option>
+                                <option value="palembang">Palembang</option>
+                                <option value="balikpapan">Balikpapan (Area IKN)</option>
+
+                                <option value="yogyakarta">Yogyakarta</option>
+                                <option value="malang">Malang</option>
+                                <option value="solo">Solo (Surakarta)</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small text-muted fw-bold">TIPE KONTRAK</label>
+                            <div class="d-flex gap-2">
+                                <input type="radio" class="btn-check" name="workType" id="onsite" value="onsite" checked>
+                                <label class="btn btn-outline-secondary w-50" for="onsite">🏢 Lokal / Onsite</label>
+
+                                <input type="radio" class="btn-check" name="workType" id="remote" value="remote">
+                                <label class="btn btn-outline-success w-50" for="remote">🌍 Remote (USD)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-predict w-100 text-white mt-3" onclick="predictSalary()">
+                            <i class="fas fa-calculator me-2"></i>Analisis Sekarang
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="card mb-4 position-relative overflow-hidden">
+                <div id="loadingOverlay">
+                    <div class="spinner-border text-primary mb-3" role="status" style="width: 3rem; height: 3rem;"></div>
+                    <h6 class="text-muted">Sedang Menjalankan Model Random Forest...</h6>
+                </div>
+
+                <div class="card-body text-center p-5">
+                    <h6 class="text-uppercase text-muted letter-spacing-2">Estimasi Gaji Bulanan (Take Home Pay)</h6>
+                    
+                    <h1 class="salary-display my-3" id="resultValue">Rp 0</h1>
+                    
+                    <div id="badgesContainer" class="d-flex justify-content-center gap-2 flex-wrap">
+                        <span class="badge bg-warning text-dark badge-rule" id="badgeLocal">
+                            <i class="fas fa-map-marker-alt"></i> Adjusted: Biaya Hidup Daerah
+                        </span>
+                        <span class="badge bg-success badge-rule" id="badgeRemote">
+                            <i class="fas fa-globe-americas"></i> Override: Standar Internasional
+                        </span>
+                    </div>
+
+                    <p class="text-muted mt-3" id="insightText">Silakan masukkan data profil Anda di sebelah kiri.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-white border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold text-dark"><i class="fas fa-chart-bar me-2 text-info"></i>Komparasi Pasar</h5>
+                    <span class="badge bg-light text-dark border">Data Source: StackOverflow 2023</span>
+                </div>
+                <div class="card-body">
+                    <div style="height: 300px;">
+                        <canvas id="salaryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center py-4 text-muted small">
+    &copy; 2025 Much Panji Laksono Project. Built for Artificial Intelligence Course Assignment.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // 1. UPDATE LABEL SLIDER
+    function updateExpLabel(val) {
+        document.getElementById('expVal').innerText = val;
+    }
+
+    // 2. SETUP CHART.JS
+    const ctx = document.getElementById('salaryChart').getContext('2d');
+    let comparisonChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Gaji Prediksi Anda', 'Rata-rata Jakarta', 'Potensi Remote (Global)'],
+            datasets: [{
+                label: 'Nominal (Juta IDR)',
+                data: [0, 0, 0],
+                backgroundColor: ['#0d6efd', '#adb5bd', '#198754'],
+                borderRadius: 5,
+                barThickness: 50
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: { beginAtZero: true, grid: { borderDash: [5, 5] } }
+            }
+        }
+    });
+
+    // 3. FUNGSI UTAMA: KIRIM DATA KE FLASK
+    async function predictSalary() {
+        // Tampilkan Loading
+        const loader = document.getElementById('loadingOverlay');
+        loader.style.display = 'flex';
+
+        // Ambil Data Form
+        const formData = {
+            role: document.getElementById('role').value,
+            experience: document.getElementById('experience').value,
+            location: document.getElementById('location').value,
+            workType: document.querySelector('input[name="workType"]:checked').value
+        };
+
+        try {
+            // Fetch ke Python Backend
+            const response = await fetch('https://Gfiles.pythonanywhere.com/predict', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            // Sembunyikan Loading
+            setTimeout(() => {
+                loader.style.display = 'none';
+                
+                // --- UPDATE BARU: CEK ERROR ---
+                if (data.error) {
+                    alert("Terjadi Kesalahan di Server:\n" + data.error);
+                    console.error(data.error);
+                } else {
+                    updateUI(data, formData);
+                }
+                // -----------------------------
+                
+            }, 800);
+
+        } catch (error) {
+            loader.style.display = 'none';
+            alert("Gagal koneksi ke Flask: " + error);
+        }
+    }
+
+    // 4. UPDATE TAMPILAN SETELAH DAPAT DATA
+    function updateUI(data, input) {
+        // A. Update Angka Utama
+        document.getElementById('resultValue').innerText = data.prediction_text;
+        
+        // B. Update Badges (Rules Logic Visual)
+        const rules = data.rules || [];
+        document.getElementById('badgeLocal').style.display = rules.includes('local_adjustment') ? 'inline-block' : 'none';
+        document.getElementById('badgeRemote').style.display = rules.includes('remote_global') ? 'inline-block' : 'none';
+
+        // C. Update Insight Text
+        let insight = "";
+        if (rules.includes('remote_global')) {
+            insight = "Sistem mendeteksi tipe kerja Remote International. Faktor lokasi diabaikan, menggunakan standar gaji Global (USD).";
+        } else if (rules.includes('local_adjustment')) {
+            insight = `Hasil prediksi disesuaikan dengan indeks biaya hidup di ${input.location.toUpperCase()}. Nominal lebih kecil dari Jakarta, namun daya beli setara.`;
+        } else {
+            insight = "Gaji Anda diprediksi berdasarkan standar pasar Jakarta (Base Model).";
+        }
+        document.getElementById('insightText').innerText = insight;
+
+        // D. Update Chart (Simulasi Perbandingan untuk Visualisasi)
+        // Kita hitung pembanding berdasarkan hasil prediksi (approx)
+        const userSalary = data.raw_value;
+        let jktSalary = userSalary; 
+        let globalSalary = userSalary;
+
+        // Logika Reverse Engineering untuk Grafik Perbandingan
+        if (rules.includes('local_adjustment')) {
+            // Kalau user di daerah, maka gaji Jakarta pasti lebih tinggi
+            jktSalary = userSalary * 1.4; // Asumsi kasar balik ke base
+            globalSalary = userSalary * 4;
+        } else if (rules.includes('remote_global')) {
+            // Kalau user remote, maka gaji Jakarta pasti lebih rendah
+            jktSalary = userSalary * 0.3;
+            globalSalary = userSalary;
+        } else {
+            // Kalau user di Jakarta
+            globalSalary = userSalary * 3.5;
+        }
+
+        comparisonChart.data.datasets[0].data = [
+            userSalary / 1000000, 
+            jktSalary / 1000000, 
+            globalSalary / 1000000
+        ];
+        comparisonChart.update();
+    }
+</script>
+
+</body>
+</html>
