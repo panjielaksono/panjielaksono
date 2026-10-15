@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Studi kasus prototipe prediksi gaji berbasis machine learning oleh Much Panji Laksono.">
+    <title>Salary Detector — Much Panji Laksono</title>
+    <link rel="icon" href="assets/image/dusty.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/salary-detector.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html#projects">← <span>Selected Works</span></a>
+      <span>MUCH PANJI LAKSONO <b>/</b> PROJECT 04</span>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">MACHINE LEARNING · CASE STUDY</p>
+          <h1>The salary<br><em>question.</em></h1>
+          <p class="hero-summary">Sebuah eksperimen untuk memahami bagaimana role, pengalaman, lokasi, dan tipe kerja dapat memengaruhi estimasi gaji di bidang teknologi.</p>
+          <div class="hero-meta"><span><b>01</b> Input profil</span><span><b>02</b> Random Forest</span><span><b>03</b> Aturan lokasi</span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <span class="art-top">MODEL / 2023</span>
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="art-core"><strong>ML</strong><small>+ RULES</small></div>
+          <span class="art-bottom">CAREER INTELLIGENCE<br>EXPERIMENT</span>
+        </div>
+      </section>
+
+      <section class="status-banner" role="status" aria-labelledby="status-title">
+        <span class="status-icon" aria-hidden="true">!</span>
+        <div>
+          <p class="status-kicker">SERVICE NOTICE / OCT 2026</p>
+          <h2 id="status-title">Model API telah kedaluwarsa.</h2>
+          <p>Prediksi langsung untuk sementara tidak tersedia. Halaman ini tetap menampilkan rancangan antarmuka dan alur kerja model sebagai bagian dari portofolio. Tidak ada data formulir yang dikirim.</p>
+        </div>
+        <span class="status-tag">DEMO PAUSED</span>
+      </section>
+
+      <section class="workspace" aria-labelledby="workspace-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">THE INTERFACE</p><h2 id="workspace-title">Explore the inputs<span>.</span></h2></div>
+          <p>Pratinjau parameter yang digunakan saat model masih aktif. Formulir ini kini hanya untuk eksplorasi.</p>
+        </div>
+        <div class="workspace-grid">
+          <form class="input-panel" aria-label="Pratinjau input model" onsubmit="return false">
+            <div class="panel-topline"><span>01 / PROFILE</span><span class="panel-state">● PREVIEW ONLY</span></div>
+            <h3>Build a profile</h3>
+            <p class="panel-intro">Lihat faktor yang menjadi masukan model. Mengubah pilihan tidak akan menjalankan prediksi.</p>
+            <label for="role">Posisi / role <span>01</span></label>
+            <select id="role" name="role">
+              <option>Backend Engineer</option><option>Frontend Engineer</option><option>Fullstack Developer</option>
+              <option>Mobile Developer</option><option>Data Scientist</option>
+            </select>
+            <div class="range-label"><label for="experience">Pengalaman kerja <span>02</span></label><output id="experience-value" for="experience">2 tahun</output></div>
+            <input id="experience" name="experience" type="range" min="0" max="20" value="2">
+            <div class="range-ends"><span>0 TAHUN</span><span>20 TAHUN</span></div>
+            <label for="location">Domisili <span>03</span></label>
+            <select id="location" name="location">
+              <option>Jakarta</option><option>Bali</option><option>Batam</option><option>Surabaya</option>
+              <option>Bandung</option><option>Medan</option><option>Makassar</option><option>Semarang</option>
+              <option>Palembang</option><option>Balikpapan</option><option>Yogyakarta</option>
+              <option>Malang</option><option>Solo</option>
+            </select>
+            <fieldset>
+              <legend>Tipe kerja <span>04</span></legend>
+              <div class="segmented">
+                <label><input type="radio" name="workType" value="onsite" checked><span>Lokal / Onsite</span></label>
+                <label><input type="radio" name="workType" value="remote"><span>Remote</span></label>
+              </div>
+            </fieldset>
+            <button class="predict-button" type="button" disabled aria-describedby="predict-note">Prediksi tidak tersedia <span aria-hidden="true">↗</span></button>
+            <p class="form-note" id="predict-note">Model API telah kedaluwarsa. Tombol akan aktif kembali jika layanan dipulihkan.</p>
+          </form>
+          <div class="output-column">
+            <section class="result-panel" aria-labelledby="result-title">
+              <div class="panel-topline"><span>02 / OUTPUT</span><span>MODEL OFFLINE</span></div>
+              <div class="result-content">
+                <span class="result-marker" aria-hidden="true">↗</span>
+                <p>ESTIMASI GAJI BULANAN</p>
+                <h3 id="result-title">No live prediction.</h3>
+                <p>Hasil prediksi dan komparasi pasar tidak ditampilkan karena endpoint model sudah tidak aktif. Ini mencegah angka contoh disalahartikan sebagai estimasi nyata.</p>
+              </div>
+              <div class="result-foot"><span>LAST ACTIVE MODEL</span><strong>RANDOM FOREST + RULES</strong></div>
+            </section>
+            <section class="logic-panel" aria-labelledby="logic-title">
+              <div class="panel-topline"><span>03 / HOW IT WORKED</span><span>PIPELINE</span></div>
+              <h3 id="logic-title">From input to estimate</h3>
+              <ol>
+                <li><span>01</span><div><strong>Profil pekerjaan</strong><p>Role dan pengalaman menjadi fitur utama untuk estimasi dasar.</p></div></li>
+                <li><span>02</span><div><strong>Prediksi model</strong><p>Random Forest menghasilkan angka awal dari profil yang dipilih.</p></div></li>
+                <li><span>03</span><div><strong>Penyesuaian aturan</strong><p>Lokasi dan tipe kerja memodifikasi hasil untuk skenario lokal atau remote.</p></div></li>
+              </ol>
+            </section>
+          </div>
+        </div>
+      </section>
+      <aside class="closing-note"><span>BEHIND THE PROJECT</span><p>Proyek ini dibuat sebagai tugas mata kuliah Artificial Intelligence. Data pasar yang digunakan berasal dari Stack Overflow 2023; angka historisnya tidak disajikan sebagai informasi gaji terkini.</p></aside>
+    </main>
+    <footer><span>© 2026 Much Panji Laksono</span><a href="index.html#projects">Back to selected works ↑</a></footer>
+    <script>
+      const experience = document.querySelector('#experience');
+      const experienceValue = document.querySelector('#experience-value');
+      experience.addEventListener('input', () => {
+        experienceValue.value = `${experience.value} tahun`;
+      });
+    </script>
+  </body>
+</html>
