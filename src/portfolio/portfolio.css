@@ -272,8 +272,12 @@ article { padding: 80px 10%; }
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
+.card-title-with-icon { display: flex; align-items: center; gap: 10px; }
+.card-title-with-icon img { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; }
 
 .card-desc { font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px; }
+.project-capabilities { display: flex; flex-wrap: wrap; gap: 7px; margin: -4px 0 22px; }
+.project-capabilities span { border: 1px solid #dedede; border-radius: 999px; padding: 6px 10px; color: #555; font-size: 0.7rem; letter-spacing: .02em; }
 
 .card-btn {
     display: inline-block;

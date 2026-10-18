@@ -118,8 +118,9 @@ export function Portfolio() {
           <LivePreview src="warehouse-demo.html#prototype" title="Warehouse Management System" />
           <div className="card-content">
             <h3 className="card-title">Warehouse Management System</h3>
-            <p className="card-desc">A role-based operations system for purchasing, inventory, part requests, work orders, and reporting. Explore a limited public prototype based on its warehouse UI and core workflows.</p>
-            <a href="warehouse-demo.html" className="card-btn">Explore limited prototype →</a>
+            <p className="card-desc">An ERP-style operations platform connecting purchasing, warehouse stock, part requests, fleet work orders, project operations, and management reporting. Role-based access gives each team a focused workflow and controlled visibility.</p>
+            <div className="project-capabilities" aria-label="Warehouse system capabilities"><span>ERP workflows</span><span>Role-based access</span><span>Inventory &amp; purchasing</span><span>Fleet operations</span></div>
+            <a href="warehouse-demo.html" className="card-btn">View case study &amp; limited demo →</a>
           </div>
         </div>
         <div className="project-card">
@@ -131,6 +132,30 @@ export function Portfolio() {
               <button ref={previewTriggerRef} type="button" className="card-btn" onClick={() => { setSplatPreviewIndex(0); setSplatPreviewOpen(true); }}>Explore 3D demo →</button>
               <a href="https://github.com/panjielaksono/3dgs" target="_blank" rel="noopener noreferrer" className="card-btn">GitHub ↗</a>
             </div>
+          </div>
+        </div>
+        <div className="project-card">
+          <LivePreview src="disaster-showcase.html" title="Disaster Image Analytics" />
+          <div className="card-content">
+            <h3 className="card-title">Disaster Image Analytics</h3>
+            <p className="card-desc">A six-category computer vision research interface comparing ResNet-50 and Vision Transformer. Explore a curated sample workflow without live inference or file uploads.</p>
+            <a href="disaster-showcase.html" className="card-btn">Explore showcase →</a>
+          </div>
+        </div>
+        <div className="project-card">
+          <LivePreview src="isilistrik-showcase.html" title="IsiListrik" />
+          <div className="card-content">
+            <h3 className="card-title card-title-with-icon"><img src="mobile-showcase/isilistrik-icon.jpg" alt="" />IsiListrik</h3>
+            <p className="card-desc">A Flutter electricity-token prototype with meter balances, top-up choices, and transaction history. Try a limited browser walkthrough with sample data.</p>
+            <a href="isilistrik-showcase.html" className="card-btn">Explore showcase →</a>
+          </div>
+        </div>
+        <div className="project-card">
+          <LivePreview src="mafits-showcase.html" title="maFits" />
+          <div className="card-content">
+            <h3 className="card-title card-title-with-icon"><img src="mobile-showcase/mafits-icon.png" alt="" />maFits</h3>
+            <p className="card-desc">A Flutter clothing vault for fit photos, sizes, dates, notes, and search. Browse a local sample collection without connecting to Supabase.</p>
+            <a href="mafits-showcase.html" className="card-btn">Explore showcase →</a>
           </div>
         </div>
         {projects.map((project) => <div className="project-card" key={project.title}>

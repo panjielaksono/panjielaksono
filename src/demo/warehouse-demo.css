@@ -95,6 +95,27 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
   margin-top:4px
 }
 
+.case-study { max-width:1500px; margin:0 auto; padding:42px max(3vw,20px) 10px; }
+.case-study-heading { max-width:850px; margin-bottom:27px; }
+.case-study-heading h2 { margin:10px 0 12px; color:#172840; font-size:clamp(26px,3vw,38px); letter-spacing:-.035em; line-height:1.15; }
+.case-study-heading p { margin:0; color:#64748b; font-size:14px; line-height:1.7; }
+.case-study-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; }
+.case-study-panel { padding:24px; border:1px solid #dce5f0; border-radius:13px; background:#fff; box-shadow:0 8px 26px #102d5b08; }
+.case-panel-number { color:#164b9d; font-size:10px; font-weight:800; letter-spacing:.12em; }
+.case-study-panel h3 { margin:10px 0 16px; color:#172840; font-size:19px; letter-spacing:-.025em; }
+.case-study-panel p { margin:0; color:#5f6f82; font-size:12px; line-height:1.65; }
+.case-flow { margin:0; padding:0 0 0 24px; }
+.case-flow li { padding:0 0 15px 5px; color:#164b9d; }
+.case-flow li:last-child { padding-bottom:0; }
+.case-flow strong,.case-flow span,.case-role-list strong,.case-role-list span { display:block; }
+.case-flow strong,.case-role-list strong { color:#24364c; font-size:12px; }
+.case-flow span,.case-role-list span { margin-top:3px; color:#64748b; font-size:11px; line-height:1.5; }
+.case-role-list { display:grid; gap:11px; }
+.case-role-list>div { border-left:2px solid #bfdbfe; padding-left:11px; }
+.case-module-tags { display:flex; flex-wrap:wrap; gap:7px; margin:17px 0; }
+.case-module-tags span { padding:6px 8px; border-radius:6px; background:#eff6ff; color:#164b9d; font-size:10px; font-weight:700; }
+.case-study-panel .case-panel-footnote { border-top:1px solid #e5eaf0; padding-top:14px; }
+
 .app-frame {
   display:flex;
   max-width:1500px;
@@ -710,6 +731,8 @@ tbody tr:last-child td {
 }
 
 @media(max-width:1100px) {
+  .case-study-grid { grid-template-columns:1fr 1fr; }
+  .case-study-panel:last-child { grid-column:1/-1; }
   .app-frame {
   margin:25px 16px 55px
 }
@@ -725,6 +748,9 @@ tbody tr:last-child td {
 
 }
 @media(max-width:760px) {
+  .case-study { padding:32px 20px 0; }
+  .case-study-grid { grid-template-columns:1fr; }
+  .case-study-panel:last-child { grid-column:auto; }
   .portfolio-bar span {
   display:none
 }

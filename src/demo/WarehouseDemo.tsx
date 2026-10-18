@@ -139,11 +139,20 @@ export function WarehouseDemo() {
       <div>
         <span className="case-kicker">PROJECT SHOWCASE / PUBLIC PROTOTYPE</span>
         <h1>Warehouse Management System</h1>
-        <p>Explore a focused slice of the real application: warehouse dashboard, purchase order arrival, part requests, and stock movement. The interface follows the source project’s operational UI.</p>
+        <p>An ERP-style operations platform that connects purchasing, warehouse inventory, part requests, fleet maintenance, project activity, and management reporting. The interactive prototype below demonstrates one connected warehouse workflow.</p>
       </div>
       <div className="case-boundary">
         <ShieldCheck size={22} aria-hidden="true" />
         <div><strong>Safe public demo</strong><span>Sample records only · browser state only · no sign-in or production connection</span></div>
+      </div>
+    </section>
+
+    <section className="case-study" aria-labelledby="case-study-title">
+      <div className="case-study-heading"><span className="case-kicker">SYSTEM DESIGN / OPERATIONAL DEPTH</span><h2 id="case-study-title">One system, multiple teams and decisions.</h2><p>The full application organizes daily operations around shared records. Each action has a business context: who requested a part, which unit needs it, what was ordered, what physically arrived, and how the resulting stock is used.</p></div>
+      <div className="case-study-grid">
+        <article className="case-study-panel"><span className="case-panel-number">01 / ERP WORKFLOW</span><h3>Connected operations</h3><ol className="case-flow"><li><strong>Purchase</strong><span>Admin Pembelian manages suppliers, purchase orders, and work orders.</span></li><li><strong>Receive</strong><span>Admin Gudang confirms physical arrival before incoming stock is recorded.</span></li><li><strong>Request &amp; issue</strong><span>Admin Part requests items for a vehicle; warehouse approval records the issue and updates stock.</span></li><li><strong>Monitor</strong><span>Leaders review stock, spare-part use, service history, and operational reports.</span></li></ol></article>
+        <article className="case-study-panel"><span className="case-panel-number">02 / ROLE-BASED ACCESS</span><h3>Purpose-built views</h3><div className="case-role-list"><div><strong>Admin Pembelian</strong><span>Purchasing, suppliers, work orders</span></div><div><strong>Admin Gudang</strong><span>Receipts, requests, stock and warehouse records</span></div><div><strong>Admin Part</strong><span>Part requests, vehicle and mechanic records</span></div><div><strong>Admin Ritase</strong><span>Projects, trip operations and reporting</span></div><div><strong>Direktur</strong><span>Executive monitoring and operational history</span></div><div><strong>Super Admin</strong><span>Cross-module access and account administration</span></div></div></article>
+        <article className="case-study-panel"><span className="case-panel-number">03 / BROADER SCOPE</span><h3>Beyond the warehouse</h3><p>Fleet service work orders, tire monitoring, vehicle and mechanic masters, project and ritase operations, executive dashboards, activity history, and exports make this a larger operational platform than a simple stock table.</p><div className="case-module-tags"><span>Purchasing</span><span>Inventory</span><span>Fleet service</span><span>Projects</span><span>Reporting</span></div><p className="case-panel-footnote">The public experience below uses sample records and exposes only the receipt, request, approval, and stock flow.</p></article>
       </div>
     </section>
 
