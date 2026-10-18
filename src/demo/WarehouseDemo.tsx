@@ -147,7 +147,7 @@ export function WarehouseDemo() {
       </div>
     </section>
 
-    <div className="app-frame">
+    <div className="app-frame" id="prototype">
       <aside className={`app-sidebar${sidebarOpen ? ' sidebar-open' : ''}`} aria-label="Demo navigation">
         <div className="app-brand"><span className="brand-icon"><Package size={27} /></span><div><strong>Warehouse</strong><small>LIMITED DEMO</small></div></div>
         <p className="nav-heading">MENU UTAMA</p>

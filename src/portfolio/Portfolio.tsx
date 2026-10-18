@@ -13,12 +13,18 @@ const technologies = [
 ];
 
 const projects = [
-  { title: 'Interaksi Manusia & Komputer', description: 'Pembahasan mengenai Interaksi Manusia dan Komputer secara singkat dan interaktif.', image: 'assets/image/virtual.png', alt: 'IMK Project', href: 'imk1.html', action: 'Read Summary' },
-  { title: 'Pemrograman Dasar Archive', description: 'Dokumentasi tugas Pemrograman Dasar dari masa SMK.', image: 'assets/image/pemdas2.png', alt: 'Pemdas', href: 'https://www.youtube.com/watch?v=QTIkGsMFIKo', action: 'Watch Video' },
-  { title: 'Brokoli Website', description: 'Web page pertama saya yang membahas fun fact tentang Brokoli.', image: 'assets/image/brocolli.jpg', alt: 'Brokoli', href: 'brokoli.html', action: 'Visit Site' },
-  { title: 'Sistem Informasi', description: 'Rangkuman materi kuliah Sistem Informasi (14 Chapter).', image: 'assets/image/isitgun.jpg', alt: 'Sisfo', href: 'sisfor-materi.html', action: 'Read Summary →' },
-  { title: 'Salary Detector', description: 'Studi kasus estimasi gaji dengan Random Forest dan aturan lokasi. Model API sudah kedaluwarsa; lihat rancangan dan alur kerjanya.', image: 'assets/image/salary.jpg', alt: 'Salary Detector project', href: 'salaryDetector.html.html', action: 'View Case Study →' },
+  { title: 'Interaksi Manusia & Komputer', description: 'Pembahasan mengenai Interaksi Manusia dan Komputer secara singkat dan interaktif.', preview: 'imk1.html', href: 'imk1.html', action: 'Read Summary' },
+  { title: 'Pemrograman Dasar Archive', description: 'Dokumentasi tugas Pemrograman Dasar dari masa SMK.', preview: 'https://www.youtube-nocookie.com/embed/QTIkGsMFIKo?controls=0&mute=1', href: 'https://www.youtube.com/watch?v=QTIkGsMFIKo', action: 'Watch Video' },
+  { title: 'Brokoli Website', description: 'Web page pertama saya yang membahas fun fact tentang Brokoli.', preview: 'brokoli.html', href: 'brokoli.html', action: 'Visit Site' },
+  { title: 'Sistem Informasi', description: 'Rangkuman materi kuliah Sistem Informasi (14 Chapter).', preview: 'sisfor-materi.html', href: 'sisfor-materi.html', action: 'Read Summary →' },
+  { title: 'Salary Detector', description: 'Studi kasus estimasi gaji dengan Random Forest dan aturan lokasi. Model API sudah kedaluwarsa; lihat rancangan dan alur kerjanya.', preview: 'salaryDetector.html.html', href: 'salaryDetector.html.html', action: 'View Case Study →' },
 ];
+
+function LivePreview({ src, title }: { src: string; title: string }) {
+  return <div className="card-live-preview" aria-hidden="true">
+    <iframe src={src} title={`${title} page preview`} loading="lazy" tabIndex={-1} />
+  </div>;
+}
 
 const contacts = [
   { label: 'Email', href: 'mailto:panjilaksonompl@gmail.com', image: 'assets/image/emila.png' },
@@ -109,11 +115,7 @@ export function Portfolio() {
       <h2 className="section-title">Selected Works</h2>
       <div className="projects-wrapper">
         <div className="project-card project-featured">
-          <div className="project-visual" aria-hidden="true">
-            <span className="visual-overline">INTERACTIVE CASE STUDY</span>
-            <span className="visual-title">Warehouse<br />Management<br />System</span>
-            <span className="visual-caption">Purchase → stock → request</span>
-          </div>
+          <LivePreview src="warehouse-demo.html#prototype" title="Warehouse Management System" />
           <div className="card-content">
             <h3 className="card-title">Warehouse Management System</h3>
             <p className="card-desc">A role-based operations system for purchasing, inventory, part requests, work orders, and reporting. Explore a limited public prototype based on its warehouse UI and core workflows.</p>
@@ -121,7 +123,7 @@ export function Portfolio() {
           </div>
         </div>
         <div className="project-card">
-          <img src="pic/3dgs.png" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '3dgs.png'; }} className="card-img" alt="3D Gaussian Splats" />
+          <LivePreview src="3dgs-demo.html" title="3D Gaussian Splats" />
           <div className="card-content">
             <h3 className="card-title">3D Gaussian Splats</h3>
             <p className="card-desc">Explore a sample Gaussian Splat in a focused 3D viewer. The full project also includes an editor and image-to-3D generation pipeline.</p>
@@ -132,7 +134,7 @@ export function Portfolio() {
           </div>
         </div>
         {projects.map((project) => <div className="project-card" key={project.title}>
-          <img src={project.image} className="card-img" alt={project.alt} />
+          <LivePreview src={project.preview} title={project.title} />
           <div className="card-content">
             <h3 className="card-title">{project.title}</h3>
             <p className="card-desc">{project.description}</p>
