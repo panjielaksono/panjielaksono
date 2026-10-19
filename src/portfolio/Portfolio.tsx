@@ -139,7 +139,10 @@ export function Portfolio() {
           <div className="card-content">
             <h3 className="card-title">Disaster Image Analytics</h3>
             <p className="card-desc">A six-category computer vision research interface comparing ResNet-50 and Vision Transformer. Explore a curated sample workflow without live inference or file uploads.</p>
-            <a href="disaster-showcase.html" className="card-btn">Explore showcase →</a>
+            <div className="card-actions">
+              <a href="disaster-showcase.html" className="card-btn">Explore showcase →</a>
+              <a href="https://github.com/panjielaksono/GeoDamage-Analytics" target="_blank" rel="noopener noreferrer" className="card-btn">GitHub ↗</a>
+            </div>
           </div>
         </div>
         <div className="project-card">
@@ -147,7 +150,10 @@ export function Portfolio() {
           <div className="card-content">
             <h3 className="card-title card-title-with-icon"><img src="mobile-showcase/isilistrik-icon.jpg" alt="" />IsiListrik</h3>
             <p className="card-desc">A Flutter electricity-token prototype with meter balances, top-up choices, and transaction history. Try a limited browser walkthrough with sample data.</p>
-            <a href="isilistrik-showcase.html" className="card-btn">Explore showcase →</a>
+            <div className="card-actions">
+              <a href="isilistrik-showcase.html" className="card-btn">Explore showcase →</a>
+              <a href="https://github.com/panjielaksono/isilistrik" target="_blank" rel="noopener noreferrer" className="card-btn">GitHub ↗</a>
+            </div>
           </div>
         </div>
         <div className="project-card">
@@ -155,7 +161,10 @@ export function Portfolio() {
           <div className="card-content">
             <h3 className="card-title card-title-with-icon"><img src="mobile-showcase/mafits-icon.png" alt="" />maFits</h3>
             <p className="card-desc">A Flutter clothing vault for fit photos, sizes, dates, notes, and search. Browse a local sample collection without connecting to Supabase.</p>
-            <a href="mafits-showcase.html" className="card-btn">Explore showcase →</a>
+            <div className="card-actions">
+              <a href="mafits-showcase.html" className="card-btn">Explore showcase →</a>
+              <a href="https://github.com/panjielaksono/mafits" target="_blank" rel="noopener noreferrer" className="card-btn">GitHub ↗</a>
+            </div>
           </div>
         </div>
         <div className="project-card">
@@ -163,7 +172,10 @@ export function Portfolio() {
           <div className="card-content">
             <h3 className="card-title">Mini E-Learning Website</h3>
             <p className="card-desc">An academic administration portal for student and lecturer records, courses, study plans, permissions, and curriculum analytics. Explore a limited dashboard with sample data.</p>
-            <a href="e-learning-showcase.html" className="card-btn">Explore showcase →</a>
+            <div className="card-actions">
+              <a href="e-learning-showcase.html" className="card-btn">Explore showcase →</a>
+              <a href="https://github.com/panjielaksono/mini-e-learning-website" target="_blank" rel="noopener noreferrer" className="card-btn">GitHub ↗</a>
+            </div>
           </div>
         </div>
         {projects.map((project) => <div className="project-card" key={project.title}>
