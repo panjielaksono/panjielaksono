@@ -158,6 +158,14 @@ export function Portfolio() {
             <a href="mafits-showcase.html" className="card-btn">Explore showcase →</a>
           </div>
         </div>
+        <div className="project-card">
+          <LivePreview src="e-learning-showcase.html#prototype" title="Mini E-Learning Website" />
+          <div className="card-content">
+            <h3 className="card-title">Mini E-Learning Website</h3>
+            <p className="card-desc">An academic administration portal for student and lecturer records, courses, study plans, permissions, and curriculum analytics. Explore a limited dashboard with sample data.</p>
+            <a href="e-learning-showcase.html" className="card-btn">Explore showcase →</a>
+          </div>
+        </div>
         {projects.map((project) => <div className="project-card" key={project.title}>
           <LivePreview src={project.preview} title={project.title} />
           <div className="card-content">
