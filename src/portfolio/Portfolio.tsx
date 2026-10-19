@@ -20,6 +20,26 @@ const projects = [
   { title: 'Salary Detector', description: 'Studi kasus estimasi gaji dengan Random Forest dan aturan lokasi. Model API sudah kedaluwarsa; lihat rancangan dan alur kerjanya.', preview: 'salaryDetector.html.html', href: 'salaryDetector.html.html', action: 'View Case Study →', group: 'interactive', badge: 'ML Case Study' },
 ];
 
+const researchPapers = [
+  {
+    number: '01',
+    field: 'Computer Vision · Disaster Response',
+    title: 'Class Weights for Imbalanced Disaster Image Classification with Vision Transformers',
+    summary: 'A coauthored comparison of ResNet-50 and Vision Transformer for six disaster image classes, examining class weights and random undersampling on an imbalanced dataset.',
+    methods: ['ResNet-50', 'Vision Transformer', 'Class Weights'],
+    pdf: 'research/disaster-image-classification-draft.pdf',
+    showcase: 'disaster-showcase.html',
+  },
+  {
+    number: '02',
+    field: 'Computer Vision · AIoT',
+    title: 'YOLOv8 Occupancy Detection and AIoT Architecture for Simulated AC Control',
+    summary: 'A coauthored software simulation that counts room occupants with YOLOv8n and maps occupancy levels to AC temperature instructions sent through MQTT.',
+    methods: ['YOLOv8n', 'Occupancy Detection', 'MQTT Simulation'],
+    pdf: 'research/occupancy-aiot-ac-draft.pdf',
+  },
+];
+
 function ProjectBadge({ children, tone }: { children: string; tone: string }) {
   return <span className={`project-badge project-badge--${tone}`}>{children}</span>;
 }
@@ -96,7 +116,7 @@ export function Portfolio() {
       <a href="#" className="nav-logo">Much Panji Laksono</a>
       <button className="nav-toggle" type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-controls="primary-nav" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>Menu</button>
       <ul className={`nav-links${menuOpen ? ' is-open' : ''}`} id="primary-nav">
-        {['Home', 'About', 'Tools', 'Projects', 'Contact'].map((name) => <li key={name}><a href={`#${name.toLowerCase()}`} onClick={() => setMenuOpen(false)}>{name}</a></li>)}
+        {['Home', 'About', 'Tools', 'Projects', 'Research', 'Contact'].map((name) => <li key={name}><a href={`#${name.toLowerCase()}`} onClick={() => setMenuOpen(false)}>{name}</a></li>)}
         <li><button ref={cvTriggerRef} type="button" className="nav-cv" onClick={() => { setMenuOpen(false); setCvOpen(true); }}>CV</button></li>
       </ul>
     </nav>
@@ -222,6 +242,28 @@ export function Portfolio() {
           <ArchiveCards group="learning" />
         </div>
       </section>
+    </article>
+
+    <article id="research" className="research-section">
+      <div className="research-intro">
+        <span className="research-eyebrow">WORKING DRAFTS / OPEN FOR FEEDBACK</span>
+        <h2 className="section-title">Research in Progress</h2>
+        <p>Two coauthored studies I am continuing to refine. These are unpublished working drafts; their findings and wording may change. I welcome constructive feedback.</p>
+      </div>
+      <div className="research-grid">
+        {researchPapers.map((paper) => <section className="research-card" key={paper.number} aria-labelledby={`research-title-${paper.number}`}>
+          <div className="research-card-top"><span>{paper.number} / RESEARCH NOTE</span><span className="research-status">Working draft</span></div>
+          <p className="research-field">{paper.field}</p>
+          <h3 id={`research-title-${paper.number}`}>{paper.title}</h3>
+          <p className="research-summary">{paper.summary}</p>
+          <div className="research-methods" aria-label="Methods and technologies">{paper.methods.map((method) => <span key={method}>{method}</span>)}</div>
+          <div className="research-actions">
+            <a href={paper.pdf} target="_blank" rel="noopener noreferrer" className="card-btn">Read draft PDF ↗</a>
+            <a href={`mailto:panjilaksonompl@gmail.com?subject=${encodeURIComponent(`Feedback on research draft: ${paper.title}`)}&body=${encodeURIComponent(`Hello Panji,\n\nI read your working draft, "${paper.title}."\n\nMy feedback / criticism:\n\n`)}`} className="research-feedback">Send feedback by email ↗</a>
+            {'showcase' in paper && paper.showcase && <a href={paper.showcase} className="research-showcase-link">View related project →</a>}
+          </div>
+        </section>)}
+      </div>
     </article>
 
     <article id="contact" style={{ backgroundColor: 'var(--light-bg)' }}>
