@@ -13,12 +13,28 @@ const technologies = [
 ];
 
 const projects = [
-  { title: 'Interaksi Manusia & Komputer', description: 'Pembahasan mengenai Interaksi Manusia dan Komputer secara singkat dan interaktif.', preview: 'imk1.html', href: 'imk1.html', action: 'Read Summary' },
-  { title: 'Pemrograman Dasar Archive', description: 'Dokumentasi tugas Pemrograman Dasar dari masa SMK.', preview: 'https://www.youtube-nocookie.com/embed/QTIkGsMFIKo?controls=0&mute=1', href: 'https://www.youtube.com/watch?v=QTIkGsMFIKo', action: 'Watch Video' },
-  { title: 'Brokoli Website', description: 'Web page pertama saya yang membahas fun fact tentang Brokoli.', preview: 'brokoli.html', href: 'brokoli.html', action: 'Visit Site' },
-  { title: 'Sistem Informasi', description: 'Rangkuman materi kuliah Sistem Informasi (14 Chapter).', preview: 'sisfor-materi.html', href: 'sisfor-materi.html', action: 'Read Summary →' },
-  { title: 'Salary Detector', description: 'Studi kasus estimasi gaji dengan Random Forest dan aturan lokasi. Model API sudah kedaluwarsa; lihat rancangan dan alur kerjanya.', preview: 'salaryDetector.html.html', href: 'salaryDetector.html.html', action: 'View Case Study →' },
+  { title: 'Interaksi Manusia & Komputer', description: 'Pembahasan mengenai Interaksi Manusia dan Komputer secara singkat dan interaktif.', preview: 'imk1.html', href: 'imk1.html', action: 'Read Summary', group: 'learning', badge: 'Article' },
+  { title: 'Pemrograman Dasar Archive', description: 'Dokumentasi tugas Pemrograman Dasar dari masa SMK.', preview: 'https://www.youtube-nocookie.com/embed/QTIkGsMFIKo?controls=0&mute=1', href: 'https://www.youtube.com/watch?v=QTIkGsMFIKo', action: 'Watch Video', group: 'learning', badge: 'Video' },
+  { title: 'Brokoli Website', description: 'Web page pertama saya yang membahas fun fact tentang Brokoli.', preview: 'brokoli.html', href: 'brokoli.html', action: 'Visit Site', group: 'web', badge: 'Website' },
+  { title: 'Sistem Informasi', description: 'Rangkuman materi kuliah Sistem Informasi (14 Chapter).', preview: 'sisfor-materi.html', href: 'sisfor-materi.html', action: 'Read Summary →', group: 'learning', badge: 'Article' },
+  { title: 'Salary Detector', description: 'Studi kasus estimasi gaji dengan Random Forest dan aturan lokasi. Model API sudah kedaluwarsa; lihat rancangan dan alur kerjanya.', preview: 'salaryDetector.html.html', href: 'salaryDetector.html.html', action: 'View Case Study →', group: 'interactive', badge: 'ML Case Study' },
 ];
+
+function ProjectBadge({ children, tone }: { children: string; tone: string }) {
+  return <span className={`project-badge project-badge--${tone}`}>{children}</span>;
+}
+
+function ArchiveCards({ group }: { group: string }) {
+  return projects.filter((project) => project.group === group).map((project) => <div className="project-card" key={project.title}>
+    <LivePreview src={project.preview} title={project.title} />
+    <div className="card-content">
+      <ProjectBadge tone={group}>{project.badge}</ProjectBadge>
+      <h3 className="card-title">{project.title}</h3>
+      <p className="card-desc">{project.description}</p>
+      <a href={project.href} target={project.href.startsWith('http') ? '_blank' : undefined} rel={project.href.startsWith('http') ? 'noopener noreferrer' : undefined} className="card-btn">{project.action}</a>
+    </div>
+  </div>);
+}
 
 function LivePreview({ src, title }: { src: string; title: string }) {
   return <div className="card-live-preview" aria-hidden="true">
@@ -113,10 +129,13 @@ export function Portfolio() {
 
     <article id="projects">
       <h2 className="section-title">Selected Works</h2>
-      <div className="projects-wrapper">
+      <section className="project-group" aria-label="Web applications">
+        <div className="project-group-heading"><h3>Web applications</h3><p>Platforms and websites built for real workflows.</p></div>
+        <div className="projects-wrapper">
         <div className="project-card project-featured">
           <LivePreview src="warehouse-demo.html#prototype" title="Warehouse Management System" />
           <div className="card-content">
+            <ProjectBadge tone="web">Web App · ERP</ProjectBadge>
             <h3 className="card-title">Warehouse Management System</h3>
             <p className="card-desc">An ERP-style operations platform connecting purchasing, warehouse stock, part requests, fleet work orders, project operations, and management reporting. Role-based access gives each team a focused workflow and controlled visibility.</p>
             <div className="project-capabilities" aria-label="Warehouse system capabilities"><span>ERP workflows</span><span>Role-based access</span><span>Inventory &amp; purchasing</span><span>Fleet operations</span></div>
@@ -124,30 +143,27 @@ export function Portfolio() {
           </div>
         </div>
         <div className="project-card">
-          <LivePreview src="3dgs-demo.html" title="3D Gaussian Splats" />
+          <LivePreview src="e-learning-showcase.html#prototype" title="Mini E-Learning Website" />
           <div className="card-content">
-            <h3 className="card-title">3D Gaussian Splats</h3>
-            <p className="card-desc">Explore a sample Gaussian Splat in a focused 3D viewer. The full project also includes an editor and image-to-3D generation pipeline.</p>
+            <ProjectBadge tone="web">Web App · React</ProjectBadge>
+            <h3 className="card-title">Mini E-Learning Website</h3>
+            <p className="card-desc">An academic administration portal for student and lecturer records, courses, study plans, permissions, and curriculum analytics. Explore a limited dashboard with sample data.</p>
             <div className="card-actions">
-              <button ref={previewTriggerRef} type="button" className="card-btn" onClick={() => { setSplatPreviewIndex(0); setSplatPreviewOpen(true); }}>Explore 3D demo →</button>
-              <a href="https://github.com/panjielaksono/3dgs" target="_blank" rel="noopener noreferrer" className="card-btn">GitHub ↗</a>
+              <a href="e-learning-showcase.html" className="card-btn">Explore showcase →</a>
+              <a href="https://github.com/panjielaksono/mini-e-learning-website" target="_blank" rel="noopener noreferrer" className="card-btn">GitHub ↗</a>
             </div>
           </div>
         </div>
-        <div className="project-card">
-          <LivePreview src="disaster-showcase.html" title="Disaster Image Analytics" />
-          <div className="card-content">
-            <h3 className="card-title">Disaster Image Analytics</h3>
-            <p className="card-desc">A six-category computer vision research interface comparing ResNet-50 and Vision Transformer. Explore a curated sample workflow without live inference or file uploads.</p>
-            <div className="card-actions">
-              <a href="disaster-showcase.html" className="card-btn">Explore showcase →</a>
-              <a href="https://github.com/panjielaksono/GeoDamage-Analytics" target="_blank" rel="noopener noreferrer" className="card-btn">GitHub ↗</a>
-            </div>
-          </div>
+          <ArchiveCards group="web" />
         </div>
+      </section>
+      <section className="project-group" aria-label="Mobile applications">
+        <div className="project-group-heading"><h3>Mobile applications</h3><p>Flutter prototypes designed for everyday use.</p></div>
+        <div className="projects-wrapper">
         <div className="project-card">
           <LivePreview src="isilistrik-showcase.html" title="IsiListrik" />
           <div className="card-content">
+            <ProjectBadge tone="mobile">Mobile · Flutter</ProjectBadge>
             <h3 className="card-title card-title-with-icon"><img src="mobile-showcase/isilistrik-icon.jpg" alt="" />IsiListrik</h3>
             <p className="card-desc">A Flutter electricity-token prototype with meter balances, top-up choices, and transaction history. Try a limited browser walkthrough with sample data.</p>
             <div className="card-actions">
@@ -159,6 +175,7 @@ export function Portfolio() {
         <div className="project-card">
           <LivePreview src="mafits-showcase.html" title="maFits" />
           <div className="card-content">
+            <ProjectBadge tone="mobile">Mobile · Flutter</ProjectBadge>
             <h3 className="card-title card-title-with-icon"><img src="mobile-showcase/mafits-icon.png" alt="" />maFits</h3>
             <p className="card-desc">A Flutter clothing vault for fit photos, sizes, dates, notes, and search. Browse a local sample collection without connecting to Supabase.</p>
             <div className="card-actions">
@@ -167,26 +184,44 @@ export function Portfolio() {
             </div>
           </div>
         </div>
+        </div>
+      </section>
+      <section className="project-group" aria-label="Interactive & AI">
+        <div className="project-group-heading"><h3>Interactive & AI</h3><p>Visual experiments, computer vision, and model case studies.</p></div>
+        <div className="projects-wrapper">
         <div className="project-card">
-          <LivePreview src="e-learning-showcase.html#prototype" title="Mini E-Learning Website" />
+          <LivePreview src="3dgs-demo.html" title="3D Gaussian Splats" />
           <div className="card-content">
-            <h3 className="card-title">Mini E-Learning Website</h3>
-            <p className="card-desc">An academic administration portal for student and lecturer records, courses, study plans, permissions, and curriculum analytics. Explore a limited dashboard with sample data.</p>
+            <ProjectBadge tone="interactive">Interactive · 3D</ProjectBadge>
+            <h3 className="card-title">3D Gaussian Splats</h3>
+            <p className="card-desc">Explore a sample Gaussian Splat in a focused 3D viewer. The full project also includes an editor and image-to-3D generation pipeline.</p>
             <div className="card-actions">
-              <a href="e-learning-showcase.html" className="card-btn">Explore showcase →</a>
-              <a href="https://github.com/panjielaksono/mini-e-learning-website" target="_blank" rel="noopener noreferrer" className="card-btn">GitHub ↗</a>
+              <button ref={previewTriggerRef} type="button" className="card-btn" onClick={() => { setSplatPreviewIndex(0); setSplatPreviewOpen(true); }}>Explore 3D demo →</button>
+              <a href="https://github.com/panjielaksono/3dgs" target="_blank" rel="noopener noreferrer" className="card-btn">GitHub ↗</a>
             </div>
           </div>
         </div>
-        {projects.map((project) => <div className="project-card" key={project.title}>
-          <LivePreview src={project.preview} title={project.title} />
+        <div className="project-card">
+          <LivePreview src="disaster-showcase.html" title="Disaster Image Analytics" />
           <div className="card-content">
-            <h3 className="card-title">{project.title}</h3>
-            <p className="card-desc">{project.description}</p>
-            <a href={project.href} target={project.href.startsWith('http') ? '_blank' : undefined} rel={project.href.startsWith('http') ? 'noopener noreferrer' : undefined} className="card-btn">{project.action}</a>
+            <ProjectBadge tone="interactive">AI · Computer Vision</ProjectBadge>
+            <h3 className="card-title">Disaster Image Analytics</h3>
+            <p className="card-desc">A six-category computer vision research interface comparing ResNet-50 and Vision Transformer. Explore a curated sample workflow without live inference or file uploads.</p>
+            <div className="card-actions">
+              <a href="disaster-showcase.html" className="card-btn">Explore showcase →</a>
+              <a href="https://github.com/panjielaksono/GeoDamage-Analytics" target="_blank" rel="noopener noreferrer" className="card-btn">GitHub ↗</a>
+            </div>
           </div>
-        </div>)}
-      </div>
+        </div>
+          <ArchiveCards group="interactive" />
+        </div>
+      </section>
+      <section className="project-group" aria-label="Learning & video">
+        <div className="project-group-heading"><h3>Learning & video</h3><p>Articles and an archived video from earlier work.</p></div>
+        <div className="projects-wrapper">
+          <ArchiveCards group="learning" />
+        </div>
+      </section>
     </article>
 
     <article id="contact" style={{ backgroundColor: 'var(--light-bg)' }}>
