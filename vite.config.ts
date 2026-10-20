@@ -18,6 +18,7 @@ export default defineConfig({
         isiListrikShowcase: resolve(root, 'isilistrik-showcase.html'),
         maFitsShowcase: resolve(root, 'mafits-showcase.html'),
         eLearningShowcase: resolve(root, 'e-learning-showcase.html'),
+        clientShowcase: resolve(root, 'client-showcase.html'),
       },
     },
   },

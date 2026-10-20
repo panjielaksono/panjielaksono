@@ -204,6 +204,26 @@ export function Portfolio() {
             </div>
           </div>
         </div>
+        <div className="project-card">
+          <LivePreview src="client-showcase.html?project=food" title="Food Quality Camera" />
+          <div className="card-content">
+            <ProjectBadge tone="mobile">Mobile · Flutter</ProjectBadge>
+            <h3 className="card-title">Food Quality Camera</h3>
+            <p className="card-desc">A private client camera prototype for food quality cues and education. Explore a sanitized, interactive interface with no real scanning or client data.</p>
+            <div className="project-capabilities" aria-label="Project disclosure"><span>Private client work</span><span>Identity removed</span></div>
+            <a href="client-showcase.html?project=food" className="card-btn">Explore showcase →</a>
+          </div>
+        </div>
+        <div className="project-card">
+          <LivePreview src="client-showcase.html?project=eye" title="Eye Imaging and AI Workflow" />
+          <div className="card-content">
+            <ProjectBadge tone="mobile">Mobile + AI · Flutter</ProjectBadge>
+            <h3 className="card-title">Eye Imaging &amp; AI Workflow</h3>
+            <p className="card-desc">An integrated Flutter app and YOLO-based AI inference hosted on Hugging Face. It analyzes eye images for an arcus senilis cue and generates an experimental cholesterol estimate. The public demo uses synthetic data.</p>
+            <div className="project-capabilities" aria-label="Project capabilities and disclosure"><span>YOLO model</span><span>Eye-image analysis</span><span>Private client work</span></div>
+            <a href="client-showcase.html?project=eye" className="card-btn">Explore showcase →</a>
+          </div>
+        </div>
         </div>
       </section>
       <section className="project-group" aria-label="Interactive & AI">
