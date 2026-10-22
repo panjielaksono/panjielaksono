@@ -38,6 +38,17 @@ const researchPapers = [
     methods: ['YOLOv8n', 'Occupancy Detection', 'MQTT Simulation'],
     pdf: 'research/occupancy-aiot-ac-draft.pdf',
   },
+  {
+    number: '03',
+    field: 'Mobile Prototyping · Prepaid Electricity',
+    title: 'Perancangan Prototipe IsiListrik untuk Pemantauan Meter Listrik Prabayar dan Simulasi Token',
+    summary: 'An independent, early-stage study of a Flutter prototype for managing multiple prepaid meters and simulating token top-ups. Current checks cover the developer walkthrough and local data persistence; usability research, physical meter access, and technical feasibility still need substantial work.',
+    methods: ['Flutter', 'Multi-meter Interface', 'Local Persistence'],
+    pdf: 'research/isilistrik-prototype-working-draft.pdf',
+    showcase: 'isilistrik-showcase.html',
+    authorship: 'Solo author · Much Panji Laksono',
+    status: 'Early-stage draft',
+  },
 ];
 
 function ProjectBadge({ children, tone }: { children: string; tone: string }) {
@@ -178,7 +189,7 @@ export function Portfolio() {
         </div>
       </section>
       <section className="project-group" aria-label="Mobile applications">
-        <div className="project-group-heading"><h3>Mobile applications</h3><p>Flutter prototypes designed for everyday use.</p></div>
+        <div className="project-group-heading"><h3>Mobile applications</h3><p>Flutter apps and prototypes for everyday and business workflows.</p></div>
         <div className="projects-wrapper">
         <div className="project-card">
           <LivePreview src="isilistrik-showcase.html" title="IsiListrik" />
@@ -202,6 +213,16 @@ export function Portfolio() {
               <a href="mafits-showcase.html" className="card-btn">Explore showcase →</a>
               <a href="https://github.com/panjielaksono/mafits" target="_blank" rel="noopener noreferrer" className="card-btn">GitHub ↗</a>
             </div>
+          </div>
+        </div>
+        <div className="project-card">
+          <LivePreview src="pos-showcase.html" title="Restaurant POS and Operations" />
+          <div className="card-content">
+            <ProjectBadge tone="mobile">Mobile · Flutter · POS</ProjectBadge>
+            <h3 className="card-title">Restaurant POS &amp; Operations</h3>
+            <p className="card-desc">A private client restaurant workflow for orders, tables, menu stock, expenses, and financial reporting. Explore a limited local demo with fictional data.</p>
+            <div className="project-capabilities" aria-label="Project capabilities and disclosure"><span>Private client work</span><span>POS workflow</span><span>Sanitized demo</span></div>
+            <a href="pos-showcase.html" className="card-btn">Explore showcase →</a>
           </div>
         </div>
         <div className="project-card">
@@ -268,13 +289,14 @@ export function Portfolio() {
       <div className="research-intro">
         <span className="research-eyebrow">WORKING DRAFTS / OPEN FOR FEEDBACK</span>
         <h2 className="section-title">Research in Progress</h2>
-        <p>Two coauthored studies I am continuing to refine. These are unpublished working drafts; their findings and wording may change. I welcome constructive feedback.</p>
+        <p>Three unpublished working drafts: two coauthored studies and one independent IsiListrik study. The IsiListrik research needs substantial revision and validation before its findings can be relied on. I welcome constructive feedback.</p>
       </div>
       <div className="research-grid">
         {researchPapers.map((paper) => <section className="research-card" key={paper.number} aria-labelledby={`research-title-${paper.number}`}>
-          <div className="research-card-top"><span>{paper.number} / RESEARCH NOTE</span><span className="research-status">Working draft</span></div>
+          <div className="research-card-top"><span>{paper.number} / RESEARCH NOTE</span><span className="research-status">{'status' in paper ? paper.status : 'Working draft'}</span></div>
           <p className="research-field">{paper.field}</p>
           <h3 id={`research-title-${paper.number}`}>{paper.title}</h3>
+          {'authorship' in paper && paper.authorship && <p className="research-authorship">{paper.authorship}</p>}
           <p className="research-summary">{paper.summary}</p>
           <div className="research-methods" aria-label="Methods and technologies">{paper.methods.map((method) => <span key={method}>{method}</span>)}</div>
           <div className="research-actions">
