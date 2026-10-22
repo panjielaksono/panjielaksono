@@ -20,6 +20,7 @@ export default defineConfig({
         eLearningShowcase: resolve(root, 'e-learning-showcase.html'),
         clientShowcase: resolve(root, 'client-showcase.html'),
         posShowcase: resolve(root, 'pos-showcase.html'),
+        assessmentShowcase: resolve(root, 'assessment-showcase.html'),
       },
     },
   },

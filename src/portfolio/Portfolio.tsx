@@ -185,6 +185,16 @@ export function Portfolio() {
             </div>
           </div>
         </div>
+        <div className="project-card">
+          <LivePreview src="assessment-showcase.html#prototype" title="Lesson Plan Assessment" />
+          <div className="card-content">
+            <ProjectBadge tone="web">Web App · PHP</ProjectBadge>
+            <ProjectBadge tone="private">Private client work</ProjectBadge>
+            <h3 className="card-title">Lesson Plan Assessment</h3>
+            <p className="card-desc">A structured lesson-plan review workflow with context details, 28 scored criteria across six areas, reviewer guidance, notes, and a PDF result. Explore a limited, interactive version with fictional identities, rewritten sample prompts, and an area breakdown.</p>
+            <a href="assessment-showcase.html" className="card-btn">Explore limited showcase →</a>
+          </div>
+        </div>
           <ArchiveCards group="web" />
         </div>
       </section>
